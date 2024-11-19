@@ -1,0 +1,22 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    },
+    "restoreTerminals.terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "server",
+          
+          "commands": ["cd ./server && yarn run start-server"]
+        },
+        {
+          "name": "client",
+          "commands": ["cd ./client && yarn run dev"]
+        },
+      ]
+    },
+  ]
+}
