@@ -32,6 +32,6 @@ const FruitsSchema: Schema = new Schema({
 	},
 })
 
-const Fruits = model<IFruitsSchema>('Book', FruitsSchema)
+const Fruits = model<IFruitsSchema>('Fruits', FruitsSchema)
 
 export default Fruits

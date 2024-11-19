@@ -25,6 +25,6 @@ const PesticidesSchema: Schema = new Schema({
 	},
 })
 
-const Pesticides = model<IPesticidesSchema>('Book', PesticidesSchema)
+const Pesticides = model<IPesticidesSchema>('Pesticides', PesticidesSchema)
 
 export default Pesticides

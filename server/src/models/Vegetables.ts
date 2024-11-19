@@ -32,6 +32,6 @@ const VegetablesSchema: Schema = new Schema({
 	},
 })
 
-const Vegetables = model<IVegetablesSchema>('Book', VegetablesSchema)
+const Vegetables = model<IVegetablesSchema>('Vegetables', VegetablesSchema)
 
 export default Vegetables
