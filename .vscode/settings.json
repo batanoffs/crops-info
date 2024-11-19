@@ -5,18 +5,18 @@
         }
     },
     "restoreTerminals.terminals": [
-    {
-      "splitTerminals": [
         {
-          "name": "server",
-          
-          "commands": ["cd ./server && yarn run start-server"]
-        },
-        {
-          "name": "client",
-          "commands": ["cd ./client && yarn run dev"]
-        },
-      ]
-    },
-  ]
+            "splitTerminals": [
+                {
+                    "name": "server",
+
+                    "commands": ["cd ./server && npm start"]
+                },
+                {
+                    "name": "client",
+                    "commands": ["cd ./client && npm start"]
+                }
+            ]
+        }
+    ]
 }
