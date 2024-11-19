@@ -1,0 +1,13 @@
+<form [formGroup]="cropForm" (ngSubmit)="onSubmit()">
+	<mat-form-field>
+		<input matInput placeholder="Crop Name" formControlName="name" />
+	</mat-form-field>
+	<mat-form-field>
+		<input
+			matInput
+			placeholder="Sowing Distance"
+			formControlName="sowingDistance"
+		/>
+	</mat-form-field>
+	<button mat-raised-button type="submit">Save</button>
+</form>
