@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
+import { API } from '../common/API'
 
 @Injectable()
 export class CropService {
-	private apiUrl = 'http://localhost:5000/api/vegetables'
-
 	constructor(private http: HttpClient) {}
 
 	getCrops() {
-		return this.http.get(this.apiUrl)
+		return this.http.get(API.CATALOG)
 	}
 
 	saveCrop(crop: any) {
-		return this.http.post(this.apiUrl, crop)
+		return this.http.post(API.CATALOG, crop)
 	}
 }
