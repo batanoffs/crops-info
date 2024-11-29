@@ -1,15 +1,7 @@
-<div class="crop-list">
-	<h3>Available Crops</h3>
-	<div
-		@for (let crop of crops) {
-			{{crop}}
-		}
-		cdkDrag
-		class="crop-item"
-	>
-		
-	</div>
+<div class="sidebar">
+    <ul>
+      <li *ngFor="let item of menuItems">
+        <a [routerLink]="item.link" (click)="item.link === '/logout' && onLogout()">{{ item.label }}</a>
+      </li>
+    </ul>
 </div>
-<button mat-raised-button color="primary" (click)="openCropForm($event)">
-	>Add Crop</button
->
