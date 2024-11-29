@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose'
-import { IVegetablesSchema } from '../interfaces/Vegetables.interface'
+import { ICropsSchema } from '../interfaces/Crops.interface'
 
-const VegetablesSchema: Schema = new Schema({
+const CropsSchema: Schema = new Schema({
 	name: {
 		type: String,
 		required: [true, 'Title is required'],
@@ -32,6 +32,6 @@ const VegetablesSchema: Schema = new Schema({
 	},
 })
 
-const Vegetables = model<IVegetablesSchema>('Vegetables', VegetablesSchema)
+const Crops = model<ICropsSchema>('Crops', CropsSchema)
 
-export default Vegetables
+export default Crops

@@ -1,6 +1,6 @@
 import { Document, Types } from 'mongoose'
 
-export interface IVegetablesSchema extends Document {
+export interface ICropsSchema extends Document {
 	name: string
 	description: string
 	pesticides: Types.ObjectId[]

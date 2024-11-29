@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import { getAll, addVeggie } from '../controllers/vegetables'
+import { getAll, addVeggie } from '../controllers/crops'
 
 const router = Router()
 

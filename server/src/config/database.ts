@@ -1,6 +1,6 @@
 import mongoose, { Mongoose } from 'mongoose'
 
-require('../models/Vegetables')
+require('../models/Crops')
 require('../models/Fruits')
 
 mongoose.set('strictQuery', false)

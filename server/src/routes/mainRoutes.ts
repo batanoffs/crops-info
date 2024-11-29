@@ -1,9 +1,9 @@
 const express = require('express')
 
-import vegetablesRoutes from './vegetables'
+import cropsRoutes from './crops'
 
 const router = express.Router()
 
-router.use('/vegetables', vegetablesRoutes)
+router.use('/crops', cropsRoutes)
 
 export default router

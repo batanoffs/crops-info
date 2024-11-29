@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import Vegetables from '../models/Vegetables'
+import Crops from '../models/Crops'
 /**
  * Adds a new category item to the database.
  *
@@ -19,9 +19,9 @@ export const addVeggie = async (req: Request, res: Response, next: NextFunction)
 
 export const getAll = async (req: Request, res: Response) => {
 	try {
-		// Fetch all vegetables
-		const vegetables = await Vegetables.find().lean().exec()
-		res.json(vegetables)
+		// Fetch all Crops
+		const crops = await Crops.find().lean().exec()
+		res.json(crops)
 	} catch (error) {
 		res.status(500).json({ message: 'Error fetching categories', error })
 	}
