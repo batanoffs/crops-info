@@ -1,7 +1,7 @@
 <div class="sidebar">
     <ul>
-      <li *ngFor="let item of menuItems">
-        <a [routerLink]="item.link" (click)="item.link === '/logout' && onLogout()">{{ item.label }}</a>
-      </li>
+      @for (route of menuItems; track route.label) {
+        <li><a [routerLink]="route.link" (click)="route.link === '/logout' && onLogout()">{{ route.label }}</a></li>
+      }
     </ul>
 </div>
