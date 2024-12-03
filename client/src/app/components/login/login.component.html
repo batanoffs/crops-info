@@ -2,18 +2,18 @@
     <form (submit)="onLogin()">
       <input
         type="text"
-        [(ngModel)]="username"
         placeholder="Username"
         name="username"
         required
       />
       <input
         type="password"
-        [(ngModel)]="password"
         placeholder="Password"
         name="password"
         required
       />
       <button type="submit">Login</button>
     </form>
-    <p *ngIf="loginFailed" style="color: red">Invalid credentials</p>
+    @if (loginFailed) {
+      <p  style="color: red">Invalid credentials</p>
+    }
