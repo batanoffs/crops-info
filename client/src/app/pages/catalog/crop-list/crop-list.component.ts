@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Crop } from '../crop';
+import { Crop } from '../crop.interface';
 
 @Component({
 	selector: 'crop-list',
