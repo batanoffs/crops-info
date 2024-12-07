@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
+import { Crop } from '../crop';
 
 @Component({
 	selector: 'crop-list',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core'
 	styleUrl: './crop-list.component.scss',
 })
 export class CropList {
-	
+	@Input('cropProp') crop: Crop | null = null;
 }
