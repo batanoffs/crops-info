@@ -131,7 +131,7 @@ Server built on `express` and `mongodb` with `mongoose`. Client built with `Angu
 
     -   Helpers
 
-       -   **placeholder** - *info*
+        -   **placeholder** - *info*
 
 
 -   #### 🙋‍♀️ Services
