@@ -4,14 +4,14 @@ import { RouterModule, Router } from '@angular/router'
 import { AuthService } from '../../services/auth.service'
 
 @Component({
-	selector: 'app-sidebar',
+	selector: 'navbar',
 	standalone: true,
 	imports: [CommonModule, RouterModule],
 	providers: [],
-	templateUrl: './sidebar.component.html',
-	styleUrl: './sidebar.component.scss',
+	templateUrl: './navbar.component.html',
+	styleUrl: './navbar.component.scss',
 })
-export class SidebarComponent {
+export class NavbarComponent {
 	constructor(private authService: AuthService, private router: Router) {}
 
 	get menuItems() {
