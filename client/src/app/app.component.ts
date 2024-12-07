@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
-import { RouterOutlet } from '@angular/router'
-import { SidebarComponent } from './components/sidebar/sidebar.component'
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
 	selector: 'app-root',
@@ -10,6 +10,5 @@ import { SidebarComponent } from './components/sidebar/sidebar.component'
 	styleUrl: './app.component.scss',
 })
 export class AppComponent {
-	title = 'crops-info'
-
+	title = 'crops-info';
 }
