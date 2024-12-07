@@ -1,4 +1,4 @@
-# E-commerce Bookstore "Knigi.bg"
+# Crops Info
 
 [![License: MIT](https://img.shields.io/badge/Licence-MIT-teal)](https://opensource.org/licenses/MIT)
 [![styled with: Prettier](https://img.shields.io/badge/styled_with-prettier-purple)](https://github.com/prettier/prettier)
