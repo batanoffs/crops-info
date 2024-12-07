@@ -1,4 +1,4 @@
-export type Crop = {
+export interface Crop {
 	id: number;
 	name: string;
 	attributes: {
@@ -6,4 +6,4 @@ export type Crop = {
 		size: string;
 		growthTime: string;
 	};
-};
+}
