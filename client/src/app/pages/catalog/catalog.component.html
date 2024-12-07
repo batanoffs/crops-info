@@ -1,1 +1,14 @@
-<p>catalog works!</p>
+<h1>Crops Catalog</h1>
+<div class="wrapper"> 
+    @for (crop of crops; track crop.id) {
+        <ul>
+            <crop-list [cropProp]="crop"/>
+            <!-- <li>
+                <h4>{{crop.name}}</h4>
+                <p> {{crop.attributes.color}}</p>
+                <p> {{crop.attributes.size}}</p>
+                <p> {{crop.attributes.growthTime}}</p>
+            </li> -->
+        </ul>
+    }
+</div>
