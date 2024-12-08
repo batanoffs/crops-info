@@ -5,7 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
-import { CropService } from '../../services/crop.service'
+import { CropService } from '../catalog/crop.service'
 
 @Component({
 	selector: 'app-crop-form',
