@@ -139,6 +139,7 @@ const CropSchema: Schema = new Schema({
 	],
 	createdAt: {
 		type: Date,
+		required: true,
 		default: Date.now,
 	},
 })
