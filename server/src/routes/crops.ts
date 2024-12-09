@@ -1,10 +1,10 @@
 import { Router } from 'express'
 
-import { getAll, addVeggie } from '../controllers/crops'
+import { getAll, addCrop } from '../controllers/crops'
 
 const router = Router()
 
 router.get('/', getAll)
-router.post('/:id', addVeggie)
+router.post('/:id', addCrop)
 
 export default router
