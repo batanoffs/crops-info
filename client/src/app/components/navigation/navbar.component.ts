@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common'
-import { Component } from '@angular/core'
-import { RouterModule, Router } from '@angular/router'
-import { AuthService } from '../login/auth.service'
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
+import { AuthService } from '../login/auth.service';
 
 @Component({
 	selector: 'navbar',
@@ -27,12 +27,11 @@ export class NavbarComponent {
 					{ label: 'Home', link: '/home' },
 					{ label: 'Login', link: '/login' },
 					{ label: 'Crops', link: '/crops' },
-			  ]
+			  ];
 	}
 
 	onLogout() {
-		this.authService.logout()
-		// Optionally redirect to login or home
-		this.router.navigate(['/login'])
+		this.authService.logout();
+		this.router.navigate(['/login']);
 	}
 }
