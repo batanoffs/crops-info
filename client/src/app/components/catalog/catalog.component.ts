@@ -9,7 +9,7 @@ import { CropService } from './crop.service';
 	imports: [CropList],
 	templateUrl: './catalog.component.html',
 	styleUrl: './catalog.component.scss',
-  providers: [CropService],
+	providers: [CropService],
 })
 export class CatalogComponent implements OnInit {
 	crops: Crop[] = [];
