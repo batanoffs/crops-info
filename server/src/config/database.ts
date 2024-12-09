@@ -1,7 +1,9 @@
 import mongoose, { Mongoose } from 'mongoose'
 
-require('../models/Crops')
-require('../models/Fruits')
+require('../models/Crop')
+require('../models/Pest')
+require('../models/Disease')
+require('../models/CropCategory')
 
 mongoose.set('strictQuery', false)
 
