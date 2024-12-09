@@ -1,12 +1,12 @@
-
 .app-container {
    display: flex;
 }
 
 .navbar {
-   width: 300px;
+   width: 150px;
    border-right: 1px solid #ddd;
 }
+
 app-whiteboard {
    flex-grow: 1;
    position: relative;
