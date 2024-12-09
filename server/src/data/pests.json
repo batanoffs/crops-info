@@ -1,0 +1,96 @@
+[
+    {
+        "name": "Aphid",
+        "picture": "https://example.com/aphid.jpg",
+        "attributes": {
+            "identification": "Small, soft-bodied insects",
+            "damage": "Feed on plant sap, causing curled or distorted leaves",
+            "prevention": "Use neem oil or insecticidal soap",
+            "control": {
+                "ecoFriendly": "Introduce natural predators, such as ladybugs",
+                "chemical": "Use pyrethrin sprays"
+            }
+        },
+        "plantsAffected": [
+            "675704a1c790abb924392c62"
+        ]
+    },
+    {
+        "name": "Whitefly",
+        "picture": "https://example.com/whitefly.jpg",
+        "attributes": {
+            "identification": "Small, winged insects with a white powdery coating",
+            "damage": "Feed on plant sap, causing yellowing or stunted growth",
+            "prevention": "Use sticky traps or yellow traps",
+            "control": {
+                "ecoFriendly": "Use neem oil or insecticidal soap",
+                "chemical": "Use pyrethrin sprays"
+            }
+        },
+        "plantsAffected": [
+            "675704a1c790abb924392c63"
+        ]
+    },
+    {
+        "name": "Spider Mite",
+        "picture": "https://example.com/spidermite.jpg",
+        "attributes": {
+            "identification": "Small, spider-like insects with a fine webbing",
+            "damage": "Feed on plant sap, causing yellowing or bronzing of leaves",
+            "prevention": "Use neem oil or insecticidal soap",
+            "control": {
+                "ecoFriendly": "Increase humidity and prune infested areas",
+                "chemical": "Use pyrethrin sprays"
+            }
+        },
+        "plantsAffected": ["675704a1c790abb924392c62"]
+    },
+    {
+        "name": "Cutworm",
+        "picture": "https://example.com/cutworm.jpg",
+        "attributes": {
+            "identification": "Large, grayish-brown caterpillars with a distinctive cutting behavior",
+            "damage": "Cut through plant stems, causing damage or death",
+            "prevention": "Use collars or row covers",
+            "control": {
+                "ecoFriendly": "Hand-pick or use Bt (Bacillus thuringiensis)",
+                "chemical": "Use pyrethrin sprays"
+            }
+        },
+        "plantsAffected": [
+            "675704a1c790abb924392c61"
+        ]
+    },
+    {
+        "name": "Hornworm",
+        "picture": "https://example.com/hornworm.jpg",
+        "attributes": {
+            "identification": "Large, green caterpillars with a distinctive horn",
+            "damage": "Feed on plant leaves and stems, causing damage or death",
+            "prevention": "Use Bt (Bacillus thuringiensis) or hand-pick",
+            "control": {
+                "ecoFriendly": "Use neem oil or insecticidal soap",
+                "chemical": "Use pyrethrin sprays"
+            }
+        },
+        "plantsAffected": [
+            "675704a1c790abb924392c62"
+        ]
+    },
+    {
+        "name": "Slugs",
+        "picture": "https://example.com/slug.jpg",
+        "attributes": {
+            "identification": "Slimy, legless insects with a distinctive shell",
+            "damage": "Feed on plant leaves and stems, causing holes or damage",
+            "prevention": "Use copper tape or crushed eggshells",
+            "control": {
+                "ecoFriendly": "Hand-pick or use beer traps",
+                "chemical": "Use metaldehyde baits"
+            }
+        },
+        "plantsAffected": [
+            "675704a1c790abb924392c61"
+        ]
+    }
+]
