@@ -19,7 +19,6 @@ During development, I've learned about:
 - build a functional backend API and provide data to the client
 - store tokens with cookies
 - implementing guards to prevent unauthorized access
-- manage client state with Zustand
 - configuring CORS
 - encryption methods (salting) and many more.
 
