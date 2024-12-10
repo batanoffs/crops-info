@@ -1,98 +1,98 @@
 .wrapper {
-    background-color: #ffffff;
-    text-align: center;
+	padding: 20px;
 
-    h1 {
-        text-align: center;
-        color: #222;
-        font-weight: bold;
-    }
+	h1 {
+		font-size: 36px;
+		margin-bottom: 10px;
+	}
 
-    .header {
-        display: flex;
-        gap: 5em;
-        text-align: left;
-        align-items: center;
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
 
-        img {
-            border: 1px solid #ccc;
-            max-width: 600px;
-            height: auto;
-            border-radius: 0.5em;
-            margin-right: 2em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-    }
+		img {
+			width: 200px;
+			height: auto;
+			border-radius: 5%;
+			margin-left: 2em;
+		}
+	}
 
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 0.5em;
-        margin-bottom: 1em;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+	.attributes {
+		margin-bottom: 2em;
 
-    small {
-        color: #333;
-    }
+		h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
 
-    .attributes {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+		.cards {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			gap: 1em;
 
-        .attribute-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+			.card {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
 
-            .attribute-card {
-                margin: 0.5em;
-                padding: 0.5em;
-                border: 1px solid #ccc;
-                border-radius: 0.5em;
-                max-width: 10%;
-                background-color: #f5f5f5;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+				width: calc(15% - 2em);
+				padding: 0.5em 1em;
+				background-color: #fff;
+				border: 1px solid #ddd;
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-                p {
-                    margin-bottom: 0.5em;
-                    font-weight: bold;
-                }
+				p {
+					margin: 0px;
+					font-size: 16px;
+				}
 
-                small {
-                    line-height: 1.5;
-                    color: #777;
-                }
-            }
-        }
-    }
+				small {
+					font-size: 14px;
+					color: #666;
+				}
+			}
+		}
+	}
 
-    section {
-        margin-bottom: 2em;
+	section {
+		margin-bottom: 40px;
 
-        h2 {
-            font-size: 1.6em;
-            margin-bottom: 0.5em;
-            color: #444;
-        }
+		h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
 
-        h3 {
-            font-size: 1.3em;
-            margin-bottom: 0.5em;
-            color: #555;
-        }
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
 
-        ul {
-            list-style: none;
-            padding: 0;
+			li {
+				margin-bottom: 10px;
+			}
+		}
+	}
 
-            li {
-                font-size: 1em;
-                line-height: 1.5;
-                color: #666;
-            }
-        }
-    }
+	.nutrition {
+		.nutrients,
+		.vitamins {
+			margin-bottom: 20px;
+		}
+	}
+
+	.companions,
+	.combative,
+	.pests,
+	.diseases {
+		ul {
+			list-style: disc;
+			padding: 0 0 0 20px;
+			margin: 0;
+		}
+	}
 }
-
