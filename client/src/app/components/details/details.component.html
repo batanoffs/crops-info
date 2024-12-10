@@ -1,0 +1,128 @@
+<div class="wrapper"> 
+        <h1>{{crop.name}}</h1> 
+    <div class="header"> 
+
+        <div>
+            <p>{{crop.description}}</p> 
+        </div>
+
+        <img src={{crop.picture}} alt={{crop.name}}/>
+
+    </div>
+   
+
+    <section class="attributes"> 
+
+        <h2>Attributes</h2>
+
+        <div class="attribute-cards">
+
+            <div class="attribute-card">
+                <p>Spacing</p>
+                <small>{{crop.attributes.spacing}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Planting Depth</p>
+                <small>{{crop.attributes.plantingDepth}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Sun</p>
+                <small>{{crop.attributes.sun}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Water</p>
+                <small>{{crop.attributes.water}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Frost</p>
+                <small>{{crop.attributes.frost}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Soil</p>
+                <small>{{crop.attributes.soil}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Sprout To Mature</p>
+                <small>{{crop.attributes.sproutToMature}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Germination</p>
+                <small>{{crop.attributes.germination}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Color</p>
+                <small>{{crop.attributes.color}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Size</p>
+                <small>{{crop.attributes.size}}</small>
+            </div>
+
+            <div class="attribute-card">
+                <p>Growth Time</p>
+                <small>{{crop.attributes.growthTime}}</small>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section> 
+        <h2>Nutrition</h2>
+        <h3>Nutrients</h3>
+        <ul>
+            @for(nutrition of crop.nutrition.nutrients; track nutrition) {
+                <li>{{nutrition}}</li>
+            }
+        </ul>
+        <h3> Vitamins </h3>
+            @for(vitamin of crop.nutrition.vitamins; track vitamin) {
+                <li>{{vitamin}}</li>
+            }
+    </section>
+
+    <section> 
+        <h2>Companion Plants</h2>
+        <ul>
+            @for(plant of crop.companionPlants; track plant) {
+                <li>{{plant.plant}} - {{plant.reasons}}</li>
+            }
+        </ul>
+    </section>
+
+    <section> 
+        <h2>Combative Plants</h2>
+        <ul>
+            @for(plant of crop.combativePlants; track plant) {
+                <li>{{plant.plant}} - {{plant.reasons}}</li>
+            }
+        </ul>
+    </section>
+
+    <section> 
+        <h2>Pests</h2>
+        <ul>
+            @for(pest of crop.pests; track pest) {
+                <li>{{pest}}</li>
+            }
+        </ul>
+    </section>
+    
+    <section> 
+        <h2>Diseases</h2>
+        <ul>
+            @for(disease of crop.diseases; track disease) {
+                <li>{{disease}}</li>
+            }
+        </ul>
+    </section>
+</div>
