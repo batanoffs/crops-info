@@ -19,14 +19,14 @@ export class NavbarComponent {
 			? [
 					{ label: 'Home', link: '/home' },
 					{ label: 'About', link: '/about' },
-					{ label: 'Crops', link: '/crops' },
-					{ label: 'Favorites', link: '/favorites' },
+					{ label: 'Crops', link: '/catalog' },
+					{ label: 'Favorite', link: '/favorites' },
 					{ label: 'Logout', link: '/logout' },
 			  ]
 			: [
 					{ label: 'Home', link: '/home' },
 					{ label: 'Login', link: '/login' },
-					{ label: 'Crops', link: '/crops' },
+					{ label: 'Crops', link: '/catalog' },
 			  ];
 	}
 
