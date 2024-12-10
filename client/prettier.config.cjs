@@ -8,8 +8,9 @@ module.exports = {
 	arrowParens: 'avoid', // other option 'always'
 	requirePragma: false,
 	insertPragma: false,
+	bracketSameLine: true,
 	proseWrap: 'never',
-	htmlWhitespaceSensitivity: 'strict',
+	htmlWhitespaceSensitivity: 'ignore',
 	endOfLine: 'auto',
 	singleAttributePerLine: false,
 	quoteProps: 'as-needed',
@@ -44,4 +45,4 @@ module.exports = {
 			},
 		},
 	],
-}
+};
