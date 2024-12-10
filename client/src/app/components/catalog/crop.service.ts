@@ -11,12 +11,12 @@ export class CropService {
 	posts: Crop[] = [];
 	constructor(private http: HttpClient) {}
 
-	getPosts() {
-		return this.http.get(this.URL);
-	}
-
 	getCrops(): Observable<any> {
 		return this.http.get(API.CATALOG);
+	}
+
+	getOneCrop(id: string) {
+		return this.http.get(this.URL + '/' + id);
 	}
 
 	saveCrop(crop: any) {
