@@ -1,6 +1,4 @@
-<li>
-	<h4>{{crop?.name}}</h4>
-	<p> {{crop?.attributes?.color}}</p>
-	<p> {{crop?.attributes?.size}}</p>
-	<p> {{crop?.attributes?.growthTime}}</p>
+<li [routerLink]="['/catalog', crop?._id]">
+	<h4>{{crop?.name}}</h4> 
+	<img  src={{crop?.picture}} alt={{crop?.name}}/> 
 </li>
