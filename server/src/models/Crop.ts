@@ -95,7 +95,6 @@ const CropSchema: Schema = new Schema({
 			trim: true,
 			default: [],
 		},
-		default: null,
 	},
 	pests: [
 		{
