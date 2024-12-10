@@ -1,8 +1,6 @@
 <h1>Crops Catalog</h1>
-<div class="wrapper"> 
-    @for (crop of crops; track crop._id) {
-        <ul>
-            <crop-list [cropProp]="crop"/>
-        </ul>
-    }
-</div>
+<ul>
+	@for (crop of crops; track crop._id) {
+	<crop-list [cropProp]="crop" />
+	}
+</ul>

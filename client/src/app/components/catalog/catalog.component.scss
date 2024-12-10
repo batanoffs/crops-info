@@ -1,21 +1,15 @@
 h1 {
-    text-align: center;
-    color: #333;
-    font-weight: bold;
+	text-align: center;
+	color: #333;
+	font-weight: bold;
 }
 
-.wrapper {
-    display: flex;
+ul {
+	display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: flex-start;
-
-    ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1em;
+	list-style: none;
+	padding: 0;
 }
