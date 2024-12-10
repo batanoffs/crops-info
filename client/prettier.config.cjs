@@ -25,6 +25,18 @@ module.exports = {
 			},
 		},
 		{
+			files: ['*.html'],
+			options: {
+				parser: 'html',
+			},
+		},
+		{
+			files: ['*.scss'],
+			options: {
+				parser: 'scss',
+			},
+		},
+		{
 			files: ['*.json', '*.json5'],
 			options: {
 				printWidth: 200,
