@@ -108,3 +108,24 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
 		}
 	}
 }
+
+export const getOne = async (req: Request, res: Response): Promise<void> => {
+	const { id } = req.params
+	try {
+		const crop = await Crop.findById(id).lean().exec()
+		if (!crop) {
+			res.status(404).json({ message: 'Crop not found' })
+			return
+		}
+		res.json(crop)
+	} catch (error: unknown) {
+		if (error instanceof Error) {
+			res.status(500).json({ message: 'Error fetching crop', error: error.message })
+		} else {
+			res.status(500).json({
+				message: 'Unknown error fetching crop',
+				error: 'Unknown error',
+			})
+		}
+	}
+}
