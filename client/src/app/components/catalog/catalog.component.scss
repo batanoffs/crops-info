@@ -1,13 +1,26 @@
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.8em;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
 .wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 1px solid #ddd;
-    width: 100%;
+    gap:2em;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 ul {
-    margin: 2em;
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
