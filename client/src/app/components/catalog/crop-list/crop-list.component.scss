@@ -1,12 +1,40 @@
 li {
-    padding: 1em;
-    width: 200px;
-    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
     border-radius: 1em;
     background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    h4 {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+        text-align: center;
+        padding: 0.5em 0;
+        transition: background-color 0.3s ease;
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 1em;
+        height: 200px;
+    }
 
     &:hover {
-        background-color: #ccc;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover h4 {
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }
+
