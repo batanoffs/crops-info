@@ -4,7 +4,10 @@
     font-family: 'Inter', sans-serif;
 
     .navbar {
-        width: 220px;
+        flex: 0 0 200px;
+        position: sticky;
+        top: 0em;
+        height: 100dvh;
         background: #fff;
         color: #333;
         box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
@@ -16,7 +19,7 @@
         a {
             color: #333;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 1em;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
     
@@ -26,12 +29,13 @@
             transform: scale(1.05);
         }
     }
+
+    .app-whiteboard {
+        flex-grow: 1;
+        position: relative;
+        margin: 0em 8em;
+    }
 }
 
 
 
-.app-whiteboard {
-    flex-grow: 1;
-    position: relative;
-    margin: 0em 6em;
-}
