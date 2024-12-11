@@ -19,7 +19,7 @@ export class CropService {
 		return this.http.get(this.URL + '/' + id);
 	}
 
-	saveCrop(crop: any) {
-		return this.http.post(API.CATALOG, crop);
+	saveCrop(id: string) {
+		return this.http.post(API.FAVORITES, { id });
 	}
 }
