@@ -1,4 +1,4 @@
-import { IUserSchema } from '../interfaces/user.interface'
+import { IUserSchema } from '../interfaces/User.interface'
 import User from '../models/User'
 import bcrypt from 'bcryptjs'
 
