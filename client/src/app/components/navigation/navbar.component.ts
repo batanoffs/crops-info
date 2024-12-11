@@ -24,9 +24,8 @@ export class NavbarComponent {
 		return this.authService.isAuthenticated
 			? [
 					{ label: 'Home', link: '/home' },
-					{ label: 'About', link: '/about' },
 					{ label: 'Crops', link: '/catalog' },
-					{ label: 'Favorite', link: '/favorites' },
+					{ label: 'Favorites', link: '/favorites' },
 					{ label: 'Logout', link: '/logout' },
 			  ]
 			: [
