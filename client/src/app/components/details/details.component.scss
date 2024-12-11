@@ -1,9 +1,27 @@
 .wrapper {
 	padding: 20px;
 
-	h1 {
-		font-size: 36px;
-		margin-bottom: 10px;
+	header {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		h1 {
+			padding: 0;
+			margin: 0;
+			font-size: 36px;
+			margin-bottom: 10px;
+		}
+
+		button {
+			margin-left: 2em;
+			padding: 10px 20px;
+			background-color: #1a73e8;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
 	}
 
 	.header {

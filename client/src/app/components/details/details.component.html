@@ -1,11 +1,16 @@
-<div class="wrapper">
-	<h1>{{crop.name}}</h1>
+<div *ngIf="crop" class="wrapper">
+	<header>
+		<h1>{{crop.name}}</h1>
+		<button *ngIf="isAuth" mat-raised-button (click)="addToFavorites()">
+			Add to Favorites
+		</button>
+	</header>
 	<div class="header">
 		<div>
-			<p>{{crop.description}}</p>
+			<p>{{crop?.description}}</p>
 		</div>
 
-		<img src="{{crop.picture}}" alt="{{crop.name}}" />
+		<img src="{{crop?.picture}}" alt="{{crop?.name}}" />
 	</div>
 
 	<section class="attributes">
@@ -15,78 +20,67 @@
 			<div class="card">
 				<p>Spacing</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.spacing}}</small>
+				<small>{{crop?.attributes?.spacing}}</small>
 			</div>
 
 			<div class="card">
 				<p>Planting Depth</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.plantingDepth}}</small>
+				<small>{{crop?.attributes?.plantingDepth}}</small>
 			</div>
 
 			<div class="card">
 				<p>Sun</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.sun}}</small>
+				<small>{{crop?.attributes?.sun}}</small>
 			</div>
 
 			<div class="card">
 				<p>Water</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.water}}</small>
+				<small>{{crop?.attributes?.water}}</small>
 			</div>
 
 			<div class="card">
 				<p>Frost</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.frost}}</small>
+				<small>{{crop?.attributes?.frost}}</small>
 			</div>
 
 			<div class="card">
 				<p>Soil</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.soil}}</small>
+				<small>{{crop?.attributes?.soil}}</small>
 			</div>
 
 			<div class="card">
 				<p>Sprout To Mature</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.sproutToMature}}</small>
+				<small>{{crop?.attributes?.sproutToMature}}</small>
 			</div>
 
 			<div class="card">
 				<p>Germination</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.germination}}</small>
+				<small>{{crop?.attributes?.germination}}</small>
 			</div>
 
 			<div class="card">
 				<p>Color</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.color}}</small>
+				<small>{{crop?.attributes?.color}}</small>
 			</div>
 
 			<div class="card">
 				<p>Size</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.size}}</small>
+				<small>{{crop?.attributes?.size}}</small>
 			</div>
 
 			<div class="card">
 				<p>Growth Time</p>
 				<!-- add icon -->
-
-				<small>{{crop.attributes.growthTime}}</small>
+				<small>{{crop?.attributes?.growthTime}}</small>
 			</div>
 		</div>
 	</section>
@@ -96,16 +90,16 @@
 		<div>
 			<h3>Nutrients</h3>
 			<ul>
-				@for(nutrition of crop.nutrition.nutrients; track nutrition) {
-				    <li>{{nutrition}}</li>
+				@for(nutrition of crop?.nutrition?.nutrients; track nutrition) {
+				<li>{{nutrition}}</li>
 				}
 			</ul>
 		</div>
 
 		<div>
 			<h3>Vitamins</h3>
-			@for(vitamin of crop.nutrition.vitamins; track vitamin) {
-			    <li>{{vitamin}}</li>
+			@for(vitamin of crop?.nutrition?.vitamins; track vitamin) {
+			<li>{{vitamin}}</li>
 			}
 		</div>
 	</section>
@@ -113,8 +107,8 @@
 	<section class="companions">
 		<h2>Companion Plants</h2>
 		<ul>
-			@for(plant of crop.companionPlants; track plant) {
-			    <li>{{plant.plant}} - {{plant.reasons}}</li>
+			@for(plant of crop?.companionPlants; track plant) {
+			<li>{{plant?.plant}} - {{plant?.reasons}}</li>
 			}
 		</ul>
 	</section>
@@ -122,8 +116,8 @@
 	<section class="combative">
 		<h2>Combative Plants</h2>
 		<ul>
-			@for(plant of crop.combativePlants; track plant) {
-			    <li>{{plant.plant}} - {{plant.reasons}}</li>
+			@for(plant of crop?.combativePlants; track plant) {
+			<li>{{plant?.plant}} - {{plant?.reasons}}</li>
 			}
 		</ul>
 	</section>
@@ -131,8 +125,8 @@
 	<section class="pests">
 		<h2>Pests</h2>
 		<ul>
-			@for(pest of crop.pests; track pest) {
-			    <li>{{pest}}</li>
+			@for(pest of crop?.pests; track pest) {
+			<li>{{pest}}</li>
 			}
 		</ul>
 	</section>
@@ -140,8 +134,8 @@
 	<section class="diseases">
 		<h2>Diseases</h2>
 		<ul>
-			@for(disease of crop.diseases; track disease) {
-			    <li>{{disease}}</li>
+			@for(disease of crop?.diseases; track disease) {
+			<li>{{disease}}</li>
 			}
 		</ul>
 	</section>
