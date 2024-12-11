@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'home', component: HomeComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'catalog', component: CatalogComponent },
