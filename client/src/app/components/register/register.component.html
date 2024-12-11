@@ -1,13 +1,53 @@
-<h2>Register</h2>
-<form (ngSubmit)="onSubmit()">
-	<div>
-		<label>Username:</label>
-		<input type="text" placeholder="Username" name="username" required />
-	</div>
-	<div>
-		<label>Password:</label>
-		<input type="password" placeholder="Password" name="password" required />
-	</div>
-	<button type="submit">Register</button>
-</form>
+<h2>Register Form</h2>
 
+<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+	<div class="form-group">
+		<label for="email">Email:</label>
+		<input
+			type="text"
+			placeholder="Email"
+			name="email"
+			required
+			email
+			ngModel
+			#emailInput="ngModel" 
+		/>
+	</div>
+
+	@if (emailInput.errors?.["email"]) {
+		<div class="error">Email is not valid!</div>
+	}
+
+	<div class="form-group">
+		<label for="password">Password:</label>
+		<input
+			type="password"
+			id="password"
+			name="password"
+			placeholder="Password"
+			required
+			ngModel
+			#passwordInput="ngModel" />
+	</div>
+	@if (passwordInput.touched) {
+		@if (passwordInput.errors?.["required"]) {
+			<div class="error">Password is required!</div>
+		}
+	}
+
+	<div class="form-group">
+		<label for="rePassword">Confirm Password:</label>
+		<input
+			type="password"
+			placeholder="Repeat Password"
+			name="rePassword"
+			required
+			ngModel
+			#rePasswordInput="ngModel" />
+	</div>
+	@if (rePasswordInput.touched && passwordInput.touched && rePasswordInput.value !== passwordInput.value) {
+		<div class="error">Passwords do not match!</div>
+	}
+
+	<button>Register</button>
+</form>

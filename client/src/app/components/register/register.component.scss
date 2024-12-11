@@ -1,48 +1,71 @@
 h2 {
-	display: block;
-	text-align: center;
-	font-size: 1.6em;
-	margin-bottom: 1em;
+  text-align: center;
+  color: #444;
+  font-size: 2em;
+  margin-bottom: 2em;
+  font-weight: bold;
 }
 
 form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1em;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 1.5em;
+  padding: 2em;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+  background-color: #fafafa;
 }
 
-div {
-	display: flex;
-	gap: 1em;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 1em;
 }
 
 label {
-	width: 6em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: #666;
 }
 
 input {
-	width: 100%;
-	padding: 0.5em;
-	border: 1px solid #ccc;
-	border-radius: 0.5em;
-	transition: border-color 0.3s ease;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  transition: border-color 0.3s ease;
+  font-size: 1em;
+  background-color: #fff;
 }
 
 input:focus {
-	border-color: #1a73e8;
+  border-color: #1a73e8;
+  outline: none;
+  background-color: #e7f0fe;
 }
 
 button {
-	background-color: #1a73e8;
-	color: #fff;
-	border: none;
-	padding: 0.5em 1em;
-	border-radius: 0.5em;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  padding: 0.8em 1.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 button:hover {
-	background-color: #0056b3;
+  background-color: #0056b3;
 }
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  font-style: italic;
+}
+

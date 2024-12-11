@@ -1,21 +1,36 @@
-<h2>Login to see more information</h2>
-<form (submit)="onLogin()">
-	<div>
-		<label>Username:</label>
-		<input type="text" placeholder="Username" name="username" required />
+<h2>Login form</h2>
+<form #loginForm="ngForm" (ngSubmit)="onLogin()">
+	<div class="form-group">
+		<label for="email">Email:</label>
+		<input
+			type="text"
+			placeholder="Email"
+			name="email"
+			required
+			email
+			ngModel
+			#emailInput="ngModel" />
 	</div>
-	<div>
-		<label>Password:</label>
+
+	@if (emailInput.errors?.["email"]) {
+	<div class="error">Email is not valid!</div>
+	}
+
+	<div class="form-group">
+		<label for="password">Password:</label>
 		<input
 			type="password"
-			placeholder="Password"
+			id="password"
 			name="password"
-			required />
+			placeholder="Password"
+			required
+			ngModel
+			#passwordInput="ngModel" />
 	</div>
+	@if (passwordInput.touched) { @if (passwordInput.errors?.["required"]) {
+	<div class="error">Password is required!</div>
+	} }
 	<a routerLink="/register">Don't have an account? Register</a>
 
-	<button type="submit">Login</button>
+	<button>Login</button>
 </form>
-@if (loginFailed) {
-<p style="color: red">Invalid credentials</p>
-}
