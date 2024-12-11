@@ -9,4 +9,5 @@ export const API = {
 	CATALOG: endpoints.crops,
 	LOGIN: endpoints.auth + 'login',
 	REGISTER: endpoints.auth + 'register',
+	LOGOUT: endpoints.auth + 'logout',
 }
