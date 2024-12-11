@@ -1,7 +1,11 @@
 <div class="navbar">
-    <ul>
-      @for (route of menuItems; track route.label) {
-        <li><a [routerLink]="route.link" (click)="route.link === '/logout' && onLogout()">{{ route.label }}</a></li>
-      }
-    </ul>
+	<ul>
+		@for (route of menuItems; track route.label) {
+		<li>
+			<a [routerLink]="route.link" (click)="route.link === '/logout' && onLogout()">
+				{{ route.label }}
+			</a>
+		</li>
+		}
+	</ul>
 </div>

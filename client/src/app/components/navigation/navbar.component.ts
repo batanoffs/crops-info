@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { AuthService } from '../login/auth.service';
+import { AuthService } from '../../services/auth.service';
+import { getToken } from '../../utils/cookie';
 
 @Component({
 	selector: 'navbar',
 	standalone: true,
 	imports: [CommonModule, RouterModule],
-	providers: [],
+	providers: [AuthService],
 	templateUrl: './navbar.component.html',
 	styleUrl: './navbar.component.scss',
 })
@@ -15,6 +16,11 @@ export class NavbarComponent {
 	constructor(private authService: AuthService, private router: Router) {}
 
 	get menuItems() {
+		const token = getToken();
+
+		if (token !== '' && token !== undefined && token !== null)
+			this.authService.setAuthenticated();
+
 		return this.authService.isAuthenticated
 			? [
 					{ label: 'Home', link: '/home' },
@@ -32,6 +38,7 @@ export class NavbarComponent {
 
 	onLogout() {
 		this.authService.logout();
-		this.router.navigate(['/login']);
+
+		this.router.navigate(['/']);
 	}
 }
