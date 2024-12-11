@@ -4,6 +4,7 @@ require('../models/Crop')
 require('../models/Pest')
 require('../models/Disease')
 require('../models/CropCategory')
+require('../models/User')
 
 mongoose.set('strictQuery', false)
 
