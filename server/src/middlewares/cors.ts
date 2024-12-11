@@ -19,7 +19,6 @@ function corsConfig() {
 		credentials: true,
 		methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 		allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'],
-		exposedHeaders: ['X-Total-Count'],
 		optionsSuccessStatus: 200, // For legacy browser support
 	}
 

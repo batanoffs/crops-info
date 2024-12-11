@@ -21,7 +21,7 @@ router.post(
             .trim()
             .isLength({ min: 6 })
             .withMessage('Password must be at least 8 characters'),
-        body('repass')
+        body('rePassword')
             .trim()
             .custom((value, { req }) => value == req.body.password)
             .withMessage("Passwords don't match"),

@@ -5,16 +5,17 @@ import { createToken } from '../services/jwt'
 import { loginUser, registerUser } from '../services/user'
 
 const register = async (req: Request, res: Response) => {
-	const { email, password, repass } = req.body
+	const { email, password, rePassword } = req.body
+
 	try {
 		const validation = validationResult(req)
 
-		if (validation.errors.length) {
-			return res.status(400).json({ errors: validation.errors.all() })
+		if (!validation.isEmpty()) {
+			throw validation.errors
 		}
 
-		if (password !== repass) {
-			return res.status(400).json({ error: 'Passwords do not match' })
+		if (password !== rePassword) {
+			throw { error: 'Passwords do not match' }
 		}
 
 		const user = await registerUser(email, password)
@@ -29,9 +30,11 @@ const register = async (req: Request, res: Response) => {
 		})
 
 		const redirectUrl = '/'
-		return res.status(200).json({ message: 'Registration successful', token, redirectUrl })
+		return res
+			.status(200)
+			.json({ message: 'Registration successful', success: true, token, redirectUrl })
 	} catch (error) {
-		return res.status(500).json({ message: 'Registration failed', error })
+		res.status(500).json({ message: 'Error during register', error, success: false })
 	}
 }
 
@@ -58,9 +61,9 @@ const login = async (req: Request, res: Response) => {
 
 		const redirectUrl = '/'
 
-		res.status(200).json({ message: 'Login successful', token, redirectUrl })
+		res.status(200).json({ message: 'Login successful', token, redirectUrl, success: true })
 	} catch (error) {
-		res.status(500).json({ message: 'Error during login', error })
+		res.status(500).json({ message: 'Error during login', error, success: false })
 	}
 }
 
