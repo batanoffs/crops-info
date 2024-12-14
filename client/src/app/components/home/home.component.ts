@@ -8,4 +8,8 @@ import { RouterLink } from '@angular/router';
 	templateUrl: './home.component.html',
 	styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+	handleCommunityClick() {
+		window.open('https://www.urbangardening-sofia.com/', '_blank');
+	}
+}
