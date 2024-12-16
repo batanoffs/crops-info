@@ -90,50 +90,55 @@ const CropSchema: Schema = new Schema({
 			trim: true,
 			default: [],
 		},
-		nutrients: {
-			type: [String],
-			trim: true,
-			default: [],
-		},
+		nutrients: [
+			{
+				type: String,
+				trim: true,
+			},
+		],
 	},
 	pests: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: 'Pests',
+			ref: 'Pest',
 			default: null,
+			_id: false,
 		},
 	],
 	diseases: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: 'Diseases',
+			ref: 'Disease',
 			default: null,
+			_id: false,
 		},
 	],
 	companionPlants: [
 		{
 			plant: {
 				type: Schema.Types.ObjectId,
-				ref: 'Crops',
+				ref: 'Crop',
 			},
-			reasons: {
-				type: [String],
-				trim: true,
-				default: [],
-			},
+			reasons: [
+				{
+					type: String,
+					trim: true,
+				},
+			],
+			_id: false,
 		},
 	],
 	combativePlants: [
 		{
 			plant: {
 				type: Schema.Types.ObjectId,
-				ref: 'Crops',
+				ref: 'Crop',
 			},
 			reasons: {
-				type: [String],
+				type: String,
 				trim: true,
-				default: [],
 			},
+			_id: false,
 		},
 	],
 	createdAt: {

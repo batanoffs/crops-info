@@ -50,6 +50,6 @@ const DiseaseSchema: Schema = new Schema({
 	},
 })
 
-const Disease = model<IDiseaseSchema>('Pesticides', DiseaseSchema)
+const Disease = model<IDiseaseSchema>('Disease', DiseaseSchema)
 
 export default Disease
