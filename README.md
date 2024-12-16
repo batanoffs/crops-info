@@ -6,12 +6,13 @@
 This is plants/crops wiki where users can find information about growing crops and different types of plants. Also be able to add or edit current data about the crops.
 
 **Live link**
+
 - Hosted: -
 - Demo Video: -
 
 **Importand Notes:**
-- ***The website is not responsive.** Recommended screen resolution 1920:1080 with aspect ratio of 16:9*
-- ***The server needs to be awaken before use! Takes at least one minute***
+
+- *place holder*
 
 During development, I've learned about:
 - fully utilizing the features that the Angular 18 version provides
