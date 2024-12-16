@@ -1,35 +1,33 @@
-<nav>
-	<h1>Crops Catalog</h1>
-	<!-- List of Crops -->
-	<ul class="crop-list">
-		@for (crop of paginatedCrops; track crop) {
-		<li>
-			<crop-list [cropProp]="crop"></crop-list>
-		</li>
-		}
-	</ul>
+<h1>Crops Catalog</h1>
+<!-- List of Crops -->
+<ul class="crop-list">
+	@for (crop of paginatedCrops; track crop) {
+	<li>
+		<crop-list [cropProp]="crop"></crop-list>
+	</li>
+	}
+</ul>
 
-	<!-- Pagination -->
-	<ul class="pagination">
-		<!-- Previous Button -->
-		@if (page > 1) {
-		<li>
-			<a (click)="goToPage(page - 1)">Previous</a>
-		</li>
-		}
+<!-- Pagination -->
+<ul class="pagination">
+	<!-- Previous Button -->
+	@if (page > 1) {
+	<li>
+		<a (click)="goToPage(page - 1)">Previous</a>
+	</li>
+	}
 
-		<!-- Page Numbers -->
-		@for (p of pages; track p) {
-		<li [class.active]="p === page">
-			<a (click)="goToPage(p)">{{ p }}</a>
-		</li>
-		}
+	<!-- Page Numbers -->
+	@for (p of pages; track p) {
+	<li [class.active]="p === page">
+		<a (click)="goToPage(p)">{{ p }}</a>
+	</li>
+	}
 
-		<!-- Next Button -->
-		@if (page < pages.length) {
-		<li>
-			<a (click)="goToPage(page + 1)">Next</a>
-		</li>
-		}
-	</ul>
-</nav>
+	<!-- Next Button -->
+	@if (page < pages.length) {
+	<li>
+		<a (click)="goToPage(page + 1)">Next</a>
+	</li>
+	}
+</ul>
