@@ -36,7 +36,7 @@
 	</section>
 
 	<section class="nutrition">
-		<h2>Nutrition</h2>
+		<h2>Nutrition properties</h2>
 		<div>
 			<h3>Nutrients</h3>
 			<ul>
@@ -48,9 +48,11 @@
 
 		<div>
 			<h3>Vitamins</h3>
-			@for(vitamin of crop.nutrition.vitamins; track vitamin) {
-			<li>{{vitamin}}</li>
-			}
+			<ul>
+				@for(vitamin of crop.nutrition.vitamins; track vitamin) {
+				<li>{{vitamin}}</li>
+				}
+			</ul>
 		</div>
 	</section>
 
