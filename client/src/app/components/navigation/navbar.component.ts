@@ -36,6 +36,7 @@ export class NavbarComponent {
 					{ label: 'Home', link: '/home' },
 					{ label: 'Crops', link: '/catalog' },
 					{ label: 'Favorites', link: '/favorites' },
+					{ label: 'Create Crop', link: '/create' },
 					{ label: 'Logout', link: '/logout' },
 			  ]
 			: [
