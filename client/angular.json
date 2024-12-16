@@ -32,9 +32,16 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/scss/importable/utils/index.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/scss/importable",
+                "src/app/scss/importable/utils"
+              ]
+            }
           },
           "configurations": {
             "production": {
