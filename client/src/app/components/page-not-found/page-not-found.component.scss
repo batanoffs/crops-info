@@ -1,7 +1,4 @@
-$primary-color: #33cc33;
-$secondary-color: #333;
-$background-color: #f5f5f5;
-$font-color: #444;
+@use "utils" as ds;
 
 .page-not-found {
 	display: flex;
@@ -9,31 +6,31 @@ $font-color: #444;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	background-color: $background-color;
+	background-color: ds.$background-color;
 	padding: 2em;
 
 	h1 {
 		font-size: 5em;
 		margin: 0 0 0.5em;
-		color: $primary-color;
+		color: ds.$primary-color;
 	}
 
 	p {
 		font-size: 1.5em;
-		color: $secondary-color;
+		color: ds.$secondary-color;
 		font-weight: 300;
 	}
 
 	.home-link {
 		margin-top: 20px;
 		text-decoration: none;
-		color: $primary-color;
+		color: ds.$primary-color;
 		font-size: 1.2em;
 		font-weight: bold;
 		padding: 0.5em 1em;
 		border-radius: 0.5em;
 		transition: background-color 0.3s ease, transform 0.2s ease;
-		background-color: $background-color;
+		background-color: ds.$background-color;
 
 		&:hover {
 			background-color: #ccc;
