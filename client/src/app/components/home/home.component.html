@@ -39,10 +39,14 @@
 			<div class="feature">
 				<img
 					class="link"
-					(click)="handleCommunityClick()"
+					(click)="handleCommunityClick('https://www.urbangardening-sofia.com/')"
 					src="https://res.cloudinary.com/dzh01qrmx/image/upload/v1734178435/cropped-logo-3-288x300_sywzne.png"
 					alt="Community" />
-				<h3>Join Our Community "Градско градинарство - София"</h3>
+				<h3>
+					Join Our Community
+					<br />
+					"Urban gardening - Sofia"
+				</h3>
 				<p>
 					Connect with other garden enthusiasts, share knowledge, and grow your own
 					garden. Follow topics like:
@@ -67,4 +71,59 @@
 
 		<a routerLink="/catalog" class="button">Browse Our Catalog</a>
 	</section>
+
+	<section class="partners">
+		<h2>Our partners</h2>
+		<div class="wrapper">
+			@for (partner of partners; track partner) {
+			<div class="partner">
+				<img
+					class="link"
+					(click)="handleCommunityClick('{{partner.link}}')"
+					src="{{partner.image}}"
+					alt="{{partner.name}}" />
+			</div>
+			}
+		</div>
+	</section>
+
+	<footer>
+		<div class="footer-content">
+			<div class="wrapper">
+				<h3>Links</h3>
+				<ul>
+					<li><span>About</span></li>
+					<li><span>Contact</span></li>
+					<li><span>Catalog</span></li>
+					<li><span>Favorites</span></li>
+				</ul>
+			</div>
+
+			<div class="wrapper">
+				<h3>Resources</h3>
+				<ul>
+					<li>
+						<span>
+							"Urban gardening - Sofia"
+						</span>
+					</li>
+					<li>
+						<span>
+							"Urban gardening - Sofia" blog
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="wrapper">
+				<h3>Legal</h3>
+				<ul>
+					<li><span>Terms and Conditions</span></li>
+					<li><span>Privacy Policy</span></li>
+				</ul>
+			</div>
+		</div>
+
+		<p class="copyright">&copy; 2023 - Crops-Info Wikipedia</p>
+	</footer>
 </main>
