@@ -112,7 +112,12 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
 export const getOne = async (req: Request, res: Response): Promise<void> => {
 	const { id } = req.params
 	try {
-		const crop = await Crop.findById(id).lean().exec()
+		const crop = await Crop.findById(id)
+			.populate({ path: 'pests', select: 'name picture' })
+			.populate({ path: 'diseases', select: 'name picture' })
+			.populate({ path: 'companionPlants.plant', select: 'name picture' })
+			.populate({ path: 'combativePlants.plant', select: 'name picture' })
+			.exec()
 		if (!crop) {
 			res.status(404).json({ message: 'Crop not found' })
 			return
