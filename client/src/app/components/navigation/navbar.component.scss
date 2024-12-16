@@ -1,33 +1,56 @@
-.navbar {
+$primary: #33cc33;
+$button: #ccc;
+
+.container {
+	position: inherit;
 	padding: 2em;
-}
 
-ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 15px;
-}
+	.minimize-btn {
+		position: absolute;
+		height: 35px;
+		width: 35px;
+		border-radius: 50%;
+		top: 1em;
+		left: 160px;
+		background-color: $primary;
+		color: #fff;
+		border: none;
+		padding: 0;
+		font-size: 1.2em;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-li {
-	margin-bottom: 0;
-}
+	ul {
+		position: inherit;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 15px;
 
-a {
-	text-decoration: none;
-	color: #333;
-	font-size: 1.2em;
-	font-weight: bold;
-	transition: color 0.3s ease, transform 0.2s;
-	padding: 0.5em 1em;
-	border-radius: 5px;
-}
+		li {
+			position: inherit;
+			margin-bottom: 0;
 
-a:hover {
-	color: #0056b3;
-	background-color: #f0f0f0;
-	transform: scale(1.05);
+			a {
+				position: inherit;
+				text-decoration: none;
+				color: $primary;
+				font-size: 1.2em;
+				font-weight: bold;
+				transition: color 0.3s ease, transform 0.2s;
+				padding: 0.5em 1em;
+				border-radius: 5px;
+			}
+
+			a:hover {
+				color: $button;
+			}
+		}
+	}
 }

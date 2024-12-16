@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { getToken } from '../../utils/cookie';
@@ -13,7 +13,17 @@ import { getToken } from '../../utils/cookie';
 	styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+	@Input() isNavbarMinimized: boolean = false;
+	@Output() isNavbarMinimizedChange = new EventEmitter<boolean>();
+	toggleIcon = '<';
+
 	constructor(private authService: AuthService, private router: Router) {}
+
+	toggleNavbar() {
+		this.isNavbarMinimized = !this.isNavbarMinimized;
+		this.isNavbarMinimizedChange.emit(this.isNavbarMinimized);
+		this.toggleIcon = this.isNavbarMinimized ? '>' : '<';
+	}
 
 	get menuItems() {
 		const token = getToken();

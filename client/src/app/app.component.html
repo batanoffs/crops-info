@@ -1,7 +1,12 @@
 <main class="main">
-	<div class="app-container">
-		<navbar class="navbar"/>
-		<section class="app-whiteboard">
+	<div class="container">
+		<navbar
+			class="navbar"
+			[class.minimized]="isNavbarMinimized"
+			[(isNavbarMinimized)]="isNavbarMinimized"
+			(isNavbarMinimizedChange)="updateNavbarMinimized($event)" />
+
+		<section class="whiteboard">
 			<router-outlet />
 		</section>
 	</div>

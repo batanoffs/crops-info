@@ -1,4 +1,7 @@
-<div class="navbar">
+<div class="container">
+	<button class="minimize-btn" (click)="toggleNavbar()">
+		<span>{{ toggleIcon }}</span>
+	</button>
 	<ul>
 		@for (route of menuItems; track route.label) {
 		<li>
