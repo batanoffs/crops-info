@@ -7,7 +7,7 @@ import upload from '../middlewares/multer'
 const router = Router()
 
 router.get('/', getAll)
-router.post('/:id', addCrop)
+router.post('/', addCrop)
 router.get('/:id', getOne)
 router.post('/upload', upload.single('picture'), uploadCoverImage)
 router.post('/favorites', addToFavorites)
