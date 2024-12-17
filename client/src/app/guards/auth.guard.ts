@@ -1,14 +1,25 @@
-import { CanActivateFn, Router } from '@angular/router';
+import {
+	ActivatedRouteSnapshot,
+	CanActivateFn,
+	Router,
+	RouterStateSnapshot,
+} from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 
-export const guestGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = (
+	route: ActivatedRouteSnapshot,
+	state: RouterStateSnapshot
+) => {
 	const authService = inject(AuthService);
 	const router = inject(Router);
-	if (!authService.isAuthenticated) {
+
+	console.log('isAuthenticated', authService.isAuthenticated);
+
+	if (authService.isAuthenticated) {
 		return true;
 	} else {
-		// Redirect to home page if already authenticated
+		// Redirect to login page if not authenticated
 		router.navigate(['/home']);
 		return false;
 	}
@@ -22,17 +33,17 @@ export const guestGuard: CanActivateFn = (route, state) => {
 // @Injectable({
 //   providedIn: 'root'
 // })
-// export class GuestGuard implements CanActivate {
+// export class AuthGuard implements CanActivate {
 //   constructor(private authService: AuthService, private router: Router) {}
 
 //   canActivate(
 //     next: ActivatedRouteSnapshot,
 //     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-//     if (!this.authService.isAuthenticated) {
+//     if (this.authService.isAuthenticated) {
 //       return true;
 //     } else {
-//       // Redirect to home page if already authenticated
-//       this.router.navigate(['/home']);
+//       // Redirect to login page if not authenticated
+//       this.router.navigate(['/login']);
 //       return false;
 //     }
 //   }
