@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Crop } from '../crop.interface';
+import { Crop } from '../../../types/crop.interface';
 import { RouterLink } from '@angular/router';
 // private router: Router
 
