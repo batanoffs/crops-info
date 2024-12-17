@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Crop } from '../catalog/crop.interface';
+import { Crop } from '../../types/crop.interface';
 import { ActivatedRoute } from '@angular/router';
 import { CropService } from '../catalog/crop.service';
 import { AuthService } from '../../services/auth.service';
@@ -13,11 +13,11 @@ import { TransformAttr } from '../../directives/transformAttr.directive';
 	imports: [CommonModule, TransformAttr],
 	templateUrl: './details.component.html',
 	styleUrl: './details.component.scss',
-	providers: [CropService, AuthService, ],
+	providers: [CropService, AuthService],
 })
 export class DetailsComponent {
 	crop = {} as Crop;
-	isAuth = true;
+	isAuth = false;
 	constructor(
 		private route: ActivatedRoute,
 		private authService: AuthService,
@@ -25,19 +25,27 @@ export class DetailsComponent {
 	) {}
 
 	ngOnInit(): void {
+		// TODO update isAuth to be generated based on authService - so update methods there as well
+
 		const token = getToken();
-		if (!token) this.isAuth = false;
-		console.log(this.isAuth);
+		if (token && token !== '') {
+			this.isAuth = true;
+		} else {
+			this.isAuth = false;
+		}
 
 		const id = this.route.snapshot.params['id'];
-
 		this.cropService.getOneCrop(id).subscribe((response: any) => {
 			if (this.hasAllAttributes(response)) {
+				console.log('Crop data:', response);
+				
 				this.crop = response;
+				console.log(this.crop.attributes);
 			} else {
 				console.error('Crop data is incomplete:', response);
 			}
 		});
+		
 	}
 
 	addToFavorites(): void {
@@ -51,7 +59,7 @@ export class DetailsComponent {
 		});
 	}
 
-	private hasAllAttributes(crop: any): boolean {
+	private hasAllAttributes(crop: Crop): boolean {
 		const requiredAttributes = [
 			'_id',
 			'name',
