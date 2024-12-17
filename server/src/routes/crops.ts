@@ -9,7 +9,7 @@ const router = Router()
 router.get('/', getAll)
 router.post('/', addCrop)
 router.get('/:id', getOne)
-router.post('/upload', upload.single('picture'), uploadCoverImage)
+router.post('/upload', upload.single('file'), uploadCoverImage)
 router.post('/favorites', addToFavorites)
 
 export default router
