@@ -5,12 +5,25 @@ type Attributes = {
 	water: string;
 	frost: 'Not tolerant' | 'Tolerant' | 'Very tolerant';
 	soil: 'Acidic' | 'Neutral' | 'Alkaline';
-	sproutToMature: string;
+	sproutToHarvest: string;
 	germination: string;
-	sowingTime: string;
-	color: string;
-	size: string;
-	growthTime: string;
+	sowingTime:
+		| 'Very Early Spring'
+		| 'Early Spring'
+		| 'Spring'
+		| 'Late Spring'
+		| 'Very Early Summer'
+		| 'Early Summer'
+		| 'Summer'
+		| 'Late Summer'
+		| 'Very Early Autumn'
+		| 'Early Autumn'
+		| 'Autumn'
+		| 'Late Autumn'
+		| 'Very Early Winter'
+		| 'Early Winter'
+		| 'Winter'
+		| 'Late Winter';
 };
 
 type Nutrition = {
@@ -19,12 +32,12 @@ type Nutrition = {
 };
 
 type CompanionPlants = {
-	plant: string;
+	plant: Crop;
 	reasons: string[];
 };
 
 type CombatPlants = {
-	plant: string;
+	plant: Crop;
 	reasons: string[];
 };
 
