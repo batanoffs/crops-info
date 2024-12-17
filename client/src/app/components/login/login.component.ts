@@ -3,13 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { saveTokenInCookies } from '../../utils/cookie';
-
-interface LoginResponse {
-	success: boolean;
-	redirectUrl?: string;
-	message: string;
-	token?: string;
-}
+import { LoginResponse } from '../../types/login.interface';
 
 @Component({
 	selector: 'app-login',
@@ -27,8 +21,6 @@ export class LoginComponent {
 	onLogin() {
 		const form = this.form!;
 
-		console.log(form.value);
-
 		if (form.invalid) {
 			console.log('Form is invalid');
 			return;
@@ -40,9 +32,7 @@ export class LoginComponent {
 				if (loginResponse.token) {
 					saveTokenInCookies(loginResponse.token);
 					this.router.navigate([`${loginResponse.redirectUrl}`]);
-					console.log(this.authService.isAuthenticated);
 					this.authService.setAuthenticated();
-					console.log(this.authService.isAuthenticated);
 				}
 			} else {
 				console.log('Login failed');

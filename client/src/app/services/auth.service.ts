@@ -3,7 +3,9 @@ import { API } from '../common/serverApi';
 import { HttpClient } from '@angular/common/http';
 import { clearTokenInCookies } from '../utils/cookie';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class AuthService {
 	constructor(private http: HttpClient) {}
 
