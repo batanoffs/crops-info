@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CropList } from './crop-list/crop-list.component';
-import { Crop } from './crop.interface';
+import { Crop } from '../../types/crop.interface';
 import { CropService } from './crop.service';
 
 @Component({
