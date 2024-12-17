@@ -31,12 +31,9 @@ export const addCrop = async (req: Request, res: Response, next: NextFunction): 
 		water,
 		frost,
 		soil,
-		sproutToMature,
+		sproutToHarvest,
 		germination,
 		sowingTime,
-		color,
-		size,
-		growthTime,
 	} = attributes as {
 		spacing: string
 		plantingDepth: string
@@ -44,12 +41,9 @@ export const addCrop = async (req: Request, res: Response, next: NextFunction): 
 		water: string
 		frost: string
 		soil: string
-		sproutToMature: string
+		sproutToHarvest: string
 		germination: string
 		sowingTime: string
-		color: string
-		size: string
-		growthTime: string
 	}
 
 	if (
@@ -59,12 +53,9 @@ export const addCrop = async (req: Request, res: Response, next: NextFunction): 
 		!water ||
 		!frost ||
 		!soil ||
-		!sproutToMature ||
+		!sproutToHarvest ||
 		!germination ||
-		!sowingTime ||
-		!color ||
-		!size ||
-		!growthTime
+		!sowingTime
 	) {
 		res.status(400).json({ message: 'Missing required fields in attributes' })
 		return
