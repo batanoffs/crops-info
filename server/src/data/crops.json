@@ -1,7 +1,7 @@
 [
   {
-    "name": "Tomato",
-    "picture": "https://example.com/tomato.jpg",
+    "name": "Roma Tomato",
+    "picture": "https://res.cloudinary.com/dzh01qrmx/image/upload/c_thumb,w_200,g_face/v1733843413/roma-tomato_f3fqpq.jpg",
     "description": "Hey there, fellow gardener! Tomatoes are from the nightshade family, and they're a staple in most gardens. They're sweet, juicy, and so versatile. I love 'em in salads, sandwiches, and as a snack on their own. They're a warm-season crop, so make sure to plant them after the last frost. They're pretty easy to care for, just make sure to give 'em full sun and regular watering. Did you know that tomatoes are a great source of vitamin C and potassium? They're also super good for your heart health and can even help lower cholesterol. Plus, they're low in calories and high in fiber, making 'em a great addition to any meal.",
     "attributes": {
       "spacing": "30cm",
@@ -10,19 +10,16 @@
       "water": "2.5cm/week",
       "frost": "Not tolerant",
       "soil": "Neutral",
-      "sproutToMature": "70 days",
+      "sproutToHarvest": "70 days",
       "germination": "7 days",
-      "sowingTime": "Spring",
-      "color": "red",
-      "size": "medium",
-      "growthTime": "70 days"
+      "sowingTime": "Spring"
     },
     "nutrition": {
       "vitamins": ["C", "K"],
       "nutrients": ["Potassium", "Fiber"]
     },
     "pests": [
-      { "type": "ObjectId", "ref": "Pests", "default": "675708f9c790abb924392c74" }
+      { "type": "ObjectId", "ref": "Pests", "default": "675708f9c790abb924392c72" }
     ],
     "diseases": [],
     "companionPlants": [],
@@ -31,7 +28,7 @@
   },
   {
     "name": "Cucumber",
-    "picture": "https://example.com/cucumber.jpg",
+    "picture": "https://res.cloudinary.com/dzh01qrmx/image/upload/c_thumb,w_200,g_face/v1733842335/cucumber-leaves-wilting.jpg-400x266_jbwzqr.jpg",
     "description": "Hey, cucumber lovers! These refreshing veggies are from the gourd family and are perfect for hot summer days. They're super low in calories and high in water content, making 'em super refreshing. Plus, they're a great source of vitamin K and potassium. They're pretty easy to care for, just make sure to give 'em full sun and regular watering. And, they're super versatile - you can eat 'em raw, pickle 'em, or even use 'em in a face mask. Who knew?!",
     "attributes": {
       "spacing": "30cm",
@@ -40,12 +37,9 @@
       "water": "2.5cm/week",
       "frost": "Not tolerant",
       "soil": "Neutral",
-      "sproutToMature": "50 days",
+      "sproutToHarvest": "50 days",
       "germination": "7 days",
-      "sowingTime": "Spring",
-      "color": "green",
-      "size": "long",
-      "growthTime": "50 days"
+      "sowingTime": "Spring"
     },
     "nutrition": {
       "vitamins": ["K", "C"],
@@ -58,9 +52,9 @@
     "createdAt": "2023-10-13T00:00:00Z"
   },
   {
-    "name": "Carrot",
-    "picture": "https://example.com/carrot.jpg",
-    "description": "Hey, fellow gardeners! Carrots are from the parsley family and are a staple in most gardens. They're crunchy, sweet, and so good for you. Did you know that they're a great source of vitamin A and potassium? They're also super good for your eyesight and can even help prevent certain cancers. Plus, they're low in calories and high in fiber, making 'em a great snack. They're pretty easy to care for, just make sure to give 'em full sun and regular watering. And, they're super versatile - you can eat 'em raw, roast 'em, or even make a delicious carrot cake.",
+    "name": "Black Nebula Carrots",
+    "picture": "https://res.cloudinary.com/dzh01qrmx/image/upload/c_thumb,w_200,g_face/v1733843615/Black-Nebula-Carrots-types-of-carrots_qadjla.jpg",
+    "description": "Black Nebula carrots are known for their short growing season and deep black to purple color, resulting from a genetic mutation. Rare and once thought extinct, these carrots have a mysterious history tied to witchcraft and sorcery.They thrive in well-drained soil with full sunlight and consistent moisture. Though detailed cultivation and culinary uses are limited due to their rarity, their unique appearance and quick growth make them a fascinating variety to grow.",
     "attributes": {
       "spacing": "30cm",
       "plantingDepth": "2cm",
@@ -68,12 +62,9 @@
       "water": "2.5cm/week",
       "frost": "Not tolerant",
       "soil": "Neutral",
-      "sproutToMature": "60 days",
+      "sproutToHarvest": "60 days",
       "germination": "7 days",
-      "sowingTime": "Spring",
-      "color": "orange",
-      "size": "medium",
-      "growthTime": "60 days"
+      "sowingTime": "Spring"
     },
     "nutrition": {
       "vitamins": ["A", "K"],
@@ -87,7 +78,7 @@
   },
   {
     "name": "Pepper",
-    "picture": "https://example.com/pepper.jpg",
+    "picture": "https://res.cloudinary.com/dzh01qrmx/image/upload/c_thumb,w_200,g_face/v1733842417/Cayenne-pepper-on-the-vine_zwwymk.jpg",
     "description": "Hey, pepper lovers! These sweet fruits are from the nightshade family and are perfect for adding a pop of color to your garden. They're pretty low maintenance, just make sure to give 'em full sun and regular watering. Did you know that peppers are a great source of vitamin C and potassium? They're also super good for your heart health and can even help lower cholesterol. Plus, they're low in calories and high in fiber, making 'em a great addition to any meal. And, they're super versatile - you can eat 'em raw, roast 'em, or even make a delicious pepper sauce.",
     "attributes": {
       "spacing": "30cm",
@@ -96,12 +87,59 @@
       "water": "2.5cm/week",
       "frost": "Not tolerant",
       "soil": "Neutral",
-      "sproutToMature": "70 days",
+      "sproutToHarvest": "70 days",
       "germination": "7 days",
-      "sowingTime": "Spring",
-      "color": "green",
-      "size": "medium",
-      "growthTime": "70 days"
+      "sowingTime": "Spring"
+    },
+    "nutrition": {
+      "vitamins": ["C", "B6"],
+      "nutrients": ["Potassium", "Manganese"]
+    },
+    "pests": [],
+    "diseases": [],
+    "companionPlants": [],
+    "combativePlants": [],
+    "createdAt": "2023-10-13T00:00:00Z"
+  },
+  {
+    "name": "Eggplant, Black Beauty",
+    "picture": "https://example.com/eggplant.jpg",
+    "description": "Over 100 years old, this 1902 Burpee introduction was an immediate hit because the plants ripened perfect fruits dramatically earlier than other varieties. It became the common market eggplant of today. Harvested fresh, however, makes all the difference.",
+    "attributes": {
+      "spacing": "30cm",
+      "plantingDepth": "2cm",
+      "sun": "Full Sun",
+      "water": "2.5cm/week",
+      "frost": "Not tolerant",
+      "soil": "Neutral",
+      "sproutToHarvest": "70 days",
+      "germination": "7 days",
+      "sowingTime": "Spring"
+    },
+    "nutrition": {
+      "vitamins": ["C", "B6"],
+      "nutrients": ["Potassium", "Manganese"]
+    },
+    "pests": [],
+    "diseases": [],
+    "companionPlants": [],
+    "combativePlants": [],
+    "createdAt": "2023-10-13T00:00:00Z"
+  },
+  {
+    "name": "Okra",
+    "picture": "https://example.com/okra.jpg",
+    "description": "Hey, okra lovers! These green pods are from the mallow family and are perfect for adding a pop of color to your garden. They're pretty low maintenance, just make sure to give 'em full sun and regular watering. Did you know that okra is a great source of vitamin C and potassium? It's also super good for your heart health and can even help lower cholesterol. Plus, it's low in calories and high in fiber, making it a great addition to any meal. And, it's super versatile - you can eat it raw, roast it, or even make a delicious gumbo.",
+    "attributes": {
+      "spacing": "30cm",
+      "plantingDepth": "2cm",
+      "sun": "Full Sun",
+      "water": "2.5cm/week",
+      "frost": "Not tolerant",
+      "soil": "Neutral",
+      "sproutToHarvest": "70 days",
+      "germination": "7 days",
+      "sowingTime": "Spring"
     },
     "nutrition": {
       "vitamins": ["C", "B6"],
@@ -114,3 +152,4 @@
     "createdAt": "2023-10-13T00:00:00Z"
   }
 ]
+
