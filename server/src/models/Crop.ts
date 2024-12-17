@@ -26,26 +26,24 @@ const CropSchema: Schema = new Schema({
 			trim: true,
 		},
 		plantingDepth: {
-			type: String,
-			required: [true, 'Planting depth is required'],
-			trim: true,
+			type: Number,
+			required: [true, 'Planting depth is required in centimeters'],
 		},
 		sun: {
 			type: String,
-			required: [true, 'Sun is required'],
+			required: [true, 'Sun is required, example Full Sun'],
 			enum: ['Full Sun', 'Partial Sun', 'Shade'],
 			trim: true,
 		},
 		water: {
-			type: String,
-			required: [true, 'Water is req, example 2.5cm/week'],
-			trim: true,
+			type: Number,
+			required: [true, 'Water is required, e.g., 2.5'],
 		},
 		frost: {
 			type: String,
+			enum: ['Not tolerant', 'Tolerant', 'Very tolerant'],
 			required: [true, 'Frost is required'],
 			trim: true,
-			enum: ['Not tolerant', 'Tolerant', 'Very tolerant'],
 		},
 		soil: {
 			type: String,
@@ -53,49 +51,57 @@ const CropSchema: Schema = new Schema({
 			trim: true,
 			enum: ['Acidic', 'Neutral', 'Alkaline'],
 		},
-		sproutToMature: {
+		sproutToHarvest: {
 			type: String,
-			required: [true, 'Sprout to mature is example 40-50 days'],
+			required: [
+				true,
+				'Sprout to harvest example 40-50 or 34 as exact number. Measured in days',
+			],
 			trim: true,
 		},
 		germination: {
 			type: String,
-			required: [true, 'Germination is example 7-12 days'],
+			required: [true, 'Germination example 7-12 days or 2-3 weeks.'],
 			trim: true,
 		},
 		sowingTime: {
 			type: String,
-			required: [true, 'Sowing time is required'],
+			required: [true, 'Sowing time is required. Example Early Summer or Late Winter'],
 			trim: true,
-		},
-		color: {
-			type: String,
-			trim: true,
-			required: true,
-		},
-		size: {
-			type: String,
-			trim: true,
-			required: true,
-		},
-		growthTime: {
-			type: String,
-			trim: true,
-			required: true,
+			enum: [
+				'Very Early Spring',
+				'Early Spring',
+				'Spring',
+				'Late Spring',
+				'Very Early Summer',
+				'Early Summer',
+				'Summer',
+				'Late Summer',
+				'Very Early Autumn',
+				'Early Autumn',
+				'Autumn',
+				'Late Autumn',
+				'Very Early Winter',
+				'Early Winter',
+				'Winter',
+				'Late Winter',
+			],
 		},
 	},
 	nutrition: {
-		vitamins: {
-			type: [String],
-			trim: true,
-			default: [],
-		},
+		vitamins: [
+			{
+				type: String,
+				trim: true,
+			},
+		],
 		nutrients: [
 			{
 				type: String,
 				trim: true,
 			},
 		],
+		_id: false,
 	},
 	pests: [
 		{
