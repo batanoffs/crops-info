@@ -1,1 +1,264 @@
-<p>create-crop works!</p>
+<div class="container">
+	<div class="new-crop-border">
+		<div class="header-background">
+			<span>Create New Crop</span>
+		</div>
+		<form #form="ngForm" (ngSubmit)="createCrop(form)">
+			<!-- Name -->
+			<div class="form-group">
+				<label for="name">
+					Name
+					<span class="red">*</span>
+				</label>
+				<input
+					type="text"
+					name="name"
+					id="name"
+					ngModel
+					#inputName="ngModel"
+					required
+					minlength="3" />
+				@if(inputName?.touched){
+				<div>
+					@if(inputName?.errors?.['required']){
+					<p class="error">Crop name is required.</p>
+					} @if(inputName?.errors?.['minlength']){
+					<p class="error">Crop name must be at least 3 characters long.</p>
+					}
+				</div>
+				}
+			</div>
+
+			<!-- Description -->
+			<div class="form-group">
+				<label for="description">
+					Description
+					<span class="red">*</span>
+				</label>
+				<textarea
+					name="description"
+					id="description"
+					rows="4"
+					ngModel
+					#inputDescription="ngModel"
+					required></textarea>
+				@if(inputDescription?.touched && inputDescription?.errors?.['required']){
+				<p class="error">Description is required.</p>
+				}
+			</div>
+
+			<!-- Drag and Drop for Picture -->
+			<div class="drag-and-drop">
+				<div class="form-group">
+					<label>
+						Picture
+						<span class="red">*</span>
+					</label>
+					<ngx-file-drop
+						dropZoneLabel="Drag and drop an image"
+						(onFileDrop)="onFileDropped($event)"
+						(onFileOver)="fileOver($event)"
+						(onFileLeave)="fileLeave($event)"
+						(dropZoneClassName)="{ 'dropzone-error': uploadError }"></ngx-file-drop>
+				</div>
+
+				<div class="preview">
+					<h4>Preview:</h4>
+					<div class="img-container">
+						@if(isUploading){
+						<p class="info">Uploading image...</p>
+						} @if(uploadError){
+						<p class="error">{{ uploadError }}</p>
+						} @if(pictureUrl){
+						<img [src]="pictureUrl" alt="Uploaded Image" class="uploaded-image" />
+						}
+					</div>
+				</div>
+			</div>
+
+			<!-- Attributes -->
+			<fieldset>
+				<legend>Attributes</legend>
+
+				<!-- Spacing -->
+				<div class="form-group">
+					<label for="spacing">
+						Spacing
+						<span class="red">*</span>
+					</label>
+					<input
+						type="text"
+						name="spacing"
+						id="spacing"
+						ngModel
+						#inputSpacing="ngModel"
+						required />
+					@if(inputSpacing?.touched && inputSpacing?.errors?.['required']){
+					<p class="error">Spacing is required.</p>
+					}
+				</div>
+
+				<!-- Planting Depth -->
+				<div class="form-group">
+					<label for="plantingDepth">
+						Planting Depth (cm)
+						<span class="red">*</span>
+					</label>
+					<input
+						type="number"
+						name="plantingDepth"
+						id="plantingDepth"
+						ngModel
+						#inputPlantingDepth="ngModel"
+						required />
+					@if(inputPlantingDepth?.touched && inputPlantingDepth?.errors?.['required']){
+					<p class="error">Planting depth is required.</p>
+					}
+				</div>
+
+				<!-- Sun -->
+				<div class="form-group">
+					<label for="sun">
+						Sun
+						<span class="red">*</span>
+					</label>
+					<select name="sun" id="sun" ngModel #inputSun="ngModel" required>
+						@for (option of sunOptions; track option) {
+						<option [value]="option">{{ option }}</option>
+						}
+					</select>
+					@if(inputSun?.touched && inputSun?.errors?.['required']){
+					<p class="error">Sun is required.</p>
+					}
+				</div>
+
+				<!-- Water -->
+				<div class="form-group">
+					<label for="water">
+						Water (liters)
+						<span class="red">*</span>
+					</label>
+					<input
+						type="number"
+						name="water"
+						id="water"
+						ngModel
+						#inputWater="ngModel"
+						required />
+					@if(inputWater?.touched && inputWater?.errors?.['required']){
+					<p class="error">Water is required.</p>
+					}
+				</div>
+
+				<!-- Frost -->
+				<div class="form-group">
+					<label for="frost">
+						Frost
+						<span class="red">*</span>
+					</label>
+					<select name="frost" id="frost" ngModel #inputFrost="ngModel" required>
+						@for (option of frostOptions; track option) {
+						<option [value]="option">{{ option }}</option>
+						}
+					</select>
+					@if(inputFrost?.touched && inputFrost?.errors?.['required']){
+					<p class="error">Frost is required.</p>
+					}
+				</div>
+
+				<!-- Soil -->
+				<div class="form-group">
+					<label for="soil">
+						Soil Type
+						<span class="red">*</span>
+					</label>
+					<select name="soil" id="soil" ngModel #inputSoil="ngModel" required>
+						@for (option of soilOptions; track option) {
+						<option [value]="option">{{ option }}</option>
+						}
+					</select>
+					@if(inputSoil?.touched && inputSoil?.errors?.['required']){
+					<p class="error">Soil is required.</p>
+					}
+				</div>
+
+				<!-- Sprout To Harvest -->
+				<div class="form-group">
+					<label for="sproutToHarvest">
+						Sprout To Harvest
+						<span class="red">*</span>
+					</label>
+					<input
+						type="text"
+						name="sproutToHarvest"
+						id="sproutToHarvest"
+						ngModel
+						#inputSproutToHarvest="ngModel"
+						required />
+					@if(inputSproutToHarvest?.touched &&
+					inputSproutToHarvest?.errors?.['required']){
+					<p class="error">Sprout To Harvest is required.</p>
+					}
+				</div>
+
+				<!-- germination -->
+				<div class="form-group">
+					<label for="germination">
+						Germination
+						<span class="red">*</span>
+					</label>
+					<input
+						type="text"
+						name="germination"
+						id="germination"
+						ngModel
+						#inputGermination="ngModel"
+						required
+						minlength="3" />
+					@if(inputGermination?.touched){
+					<div>
+						@if(inputGermination?.errors?.['required']){
+						<p class="error">Germination is required.</p>
+						} @if(inputGermination?.errors?.['minlength']){
+						<p class="error">Germination min length is 3.</p>
+						}
+					</div>
+					}
+				</div>
+
+				<!-- Sowing Time -->
+				<div class="form-group">
+					<label for="sowingTime">
+						Sowing Time
+						<span class="red">*</span>
+					</label>
+					<select
+						name="sowingTime"
+						id="sowingTime"
+						ngModel
+						#inputSowingTime="ngModel"
+						required>
+						@for (sowingTime of sowingTimeOptions; track sowingTime) {
+						<option [value]="sowingTime">{{ sowingTime }}</option>
+						}
+					</select>
+					@if(inputSowingTime?.touched && inputSowingTime?.errors?.['required']){
+					<p class="error">Sowing Time is required.</p>
+					}
+				</div>
+			</fieldset>
+
+			<!-- Buttons -->
+			<div class="form-buttons">
+				<button type="button" class="cancel" (click)="goBackHandler()">Cancel</button>
+				<button
+					type="submit"
+					class="submit"
+					[disabled]="form.invalid"
+					[style]="{ backgroundColor: form.invalid ? 'grey' : '#234465' }">
+					Create
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
