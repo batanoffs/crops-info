@@ -1,4 +1,6 @@
-const baseURL = 'http://localhost:5000/api/';
+import { environment } from '../../environments/environment';
+
+const baseURL = environment.apiUrl;
 
 const endpoints = {
 	crops: baseURL + 'crops/',
@@ -12,4 +14,6 @@ export const API = {
 	REGISTER: endpoints.auth + 'register',
 	LOGOUT: endpoints.auth + 'logout',
 	FAVORITES: endpoints.favorites,
+	CREATE: endpoints.crops,
+	UPLOAD: endpoints.crops + 'upload',
 };
