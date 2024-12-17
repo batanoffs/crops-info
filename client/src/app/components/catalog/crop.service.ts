@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { API } from '../../common/serverApi';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Crop } from './crop.interface';
+import { Crop } from '../../types/crop.interface';
 
 @Injectable()
 export class CropService {
-	URL = 'http://localhost:5000/api/crops';
-
 	posts: Crop[] = [];
 	constructor(private http: HttpClient) {}
 
@@ -16,7 +14,7 @@ export class CropService {
 	}
 
 	getOneCrop(id: string) {
-		return this.http.get(this.URL + '/' + id);
+		return this.http.get(API.CATALOG + id);
 	}
 
 	saveCrop(id: string) {
