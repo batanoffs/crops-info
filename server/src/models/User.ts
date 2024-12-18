@@ -22,6 +22,9 @@ const UserSchema: Schema = new Schema(
 			locale: 'en',
 			strength: 2,
 		},
+		timestamps: true,
+		versionKey: false,
+		unique: true,
 	}
 )
 
