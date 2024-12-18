@@ -5,12 +5,7 @@
 
 This is plants/crops wiki where users can find information about growing crops and different types of plants. Also be able to add or edit current data about the crops.
 
-**Live link**
-
-- Hosted: -
-- Demo Video: -
-
-**Importand Notes:**
+**Important Notes:**
 
 - *place holder*
 
@@ -37,10 +32,6 @@ During development, I've learned about:
 - [📐Fixes and updates:](#📐-fixes-and-updates)
 
 
-
-
-
-
 ## 🔬 Technologies used
 
 | Category         | Technologies                                                                           |
@@ -62,10 +53,9 @@ Here are some examples of how to use this project:
 
 - Register and login as a user
 - Browse crops in the catalog page
-- Filter and sort the crops (not fully implemented)
+- Create and edit crops
 - Add and manage items to the favorites
-- Check each crop details in the Details Page, where only authenticated users can comment, like or edit information if they created the item.
-- Manage profile settings
+- Check each crop details in the Details Page
 
 ## 🔧 Installation
 
@@ -106,9 +96,10 @@ Follow the instructions below:
 -   Home page
 -   Login Register
 -   Catalog
--   Product details
+-   Crops details
 -   Favorites
--   Profile menu
+-   Create crops
+-   Edit crops
 
 ## 🎨 Design and Architecture
 
@@ -148,12 +139,12 @@ Server built on `express` and `mongodb` with `mongoose`. Client built with `Angu
 
 -   #### 📮 Models
 
-    | Model         | Attributes                                                         |
-    | ------------- | ------------------------------------------------------------------ |
-    | Crops. Fruits | `id`, `name`, `description`, `pesticides`, `picture`, `createdAt`, |
-    | Pesticides    | `id`,  `name`, `description`, `picture`, `createdAt`,              |
-    | User          | `id`, `email`, `password`, `register_date`, `role`                 |
-    | Favorites     | `id`, `user`, `productRefs`                                        |
+    | Model      | Attributes                                                         |
+    | ---------- | ------------------------------------------------------------------ |
+    | Crops      | `id`, `name`, `description`, `pesticides`, `picture`, `createdAt`, |
+    | Pesticides | `id`,  `name`, `description`, `picture`, `createdAt`,              |
+    | User       | `id`, `email`, `password`, `register_date`, `role`                 |
+    | Favorites  | `id`, `user`, `productRefs`                                        |
 
 -   #### 🛫 Routes 
 
