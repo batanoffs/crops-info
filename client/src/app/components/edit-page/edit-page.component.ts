@@ -6,7 +6,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { NgxFileDropEntry, NgxFileDropModule } from 'ngx-file-drop';
 import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { attributes } from '../../constants/attributes';
-import { UploadService } from '../create-crop/upload.service';
+import { DataService } from '../create-crop/data.service';
 
 @Component({
 	selector: 'app-edit-page',
@@ -35,7 +35,7 @@ export class EditPageComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private cropService: CropService,
-		private uploadService: UploadService,
+		private dataService: DataService,
 		private router: Router
 	) {}
 
@@ -123,7 +123,7 @@ export class EditPageComponent implements OnInit {
 			if (droppedFile.fileEntry.isFile) {
 				const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
 				fileEntry.file((file: File) => {
-					this.uploadService.uploadImage(file).subscribe({
+					this.dataService.uploadImage(file).subscribe({
 						next: (event: HttpEvent<any>) => {
 							if (event instanceof HttpResponse) {
 								this.pictureUrl = event.body?.data.secure_url || '';
