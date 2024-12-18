@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Crop } from '../../types/crop.interface';
 import { CropService } from '../catalog/crop.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgxFileDropEntry, NgxFileDropModule } from 'ngx-file-drop';
-import { HttpClient, HttpEvent, HttpResponse } from '@angular/common/http';
+import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { attributes } from '../../constants/attributes';
 import { UploadService } from '../create-crop/upload.service';
 
@@ -17,16 +17,27 @@ import { UploadService } from '../create-crop/upload.service';
 })
 export class EditPageComponent implements OnInit {
 	crop: Crop | null = null;
+	formModel: any = {};
 
+	// Options for dropdowns
 	sunOptions = attributes.sunOptions;
 	frostOptions = attributes.frostOptions;
 	soilOptions = attributes.soilOptions;
 	sowingTimeOptions = attributes.sowingTimeOptions;
-	pictureUrl: string = ''; // Holds the Cloudinary image URL
-	isUploading = false; // Tracks upload progress
-	uploadError: string | null = null; // Error message if upload fails
+
+	pictureUrl: string = '';
+	isUploading = false;
+	uploadError: string | null = null;
 	vitamins: string[] = [];
 	nutrients: string[] = [];
+	formChanged = false;
+
+	constructor(
+		private route: ActivatedRoute,
+		private cropService: CropService,
+		private uploadService: UploadService,
+		private router: Router
+	) {}
 
 	public files: NgxFileDropEntry[] = [];
 
@@ -38,23 +49,43 @@ export class EditPageComponent implements OnInit {
 		console.log(event);
 	}
 
-	constructor(
-		private http: HttpClient,
-		private route: ActivatedRoute,
-		private cropService: CropService,
-		private uploadService: UploadService
-	) {}
+	ngOnInit(): void {
+		// if (!this.crop) {
+		// 	this.crop = { name: '', ...otherDefaultValues };
+		// }
 
-    ngOnInit(): void {
 		const id = this.route.snapshot.paramMap.get('id');
 		if (id) {
 			this.cropService.getOneCrop(id).subscribe((response: any): Crop | void => {
 				this.crop = response;
-                this.pictureUrl = this.crop?.picture || '';
-                this.vitamins = this.crop?.nutrition?.vitamins || [];
-                this.nutrients = this.crop?.nutrition?.nutrients || [];
+				this.initializeFormModel();
 			});
 		}
+	}
+
+	initializeFormModel() {
+		if (!this.crop) return;
+		this.formModel = {
+			name: this.crop.name || '',
+			description: this.crop.description || '',
+			spacing: this.crop.attributes?.spacing || '',
+			plantingDepth: this.crop.attributes?.plantingDepth || '',
+			sun: this.crop.attributes?.sun || '',
+			water: this.crop.attributes?.water || '',
+			frost: this.crop.attributes?.frost || '',
+			soil: this.crop.attributes?.soil || '',
+			sproutToHarvest: this.crop.attributes?.sproutToHarvest || '',
+			germination: this.crop.attributes?.germination || '',
+			sowingTime: this.crop.attributes?.sowingTime || '',
+		};
+		this.pictureUrl = this.crop.picture || '';
+		this.vitamins = this.crop.nutrition?.vitamins || [];
+		this.nutrients = this.crop.nutrition?.nutrients || [];
+	}
+
+	// Mark form as changed
+	onFieldChange() {
+		this.formChanged = true;
 	}
 
 	// Add a vitamin
@@ -82,8 +113,6 @@ export class EditPageComponent implements OnInit {
 	removeNutrient(index: number) {
 		this.nutrients.splice(index, 1);
 	}
-
-	
 
 	onFileDropped(files: NgxFileDropEntry[]) {
 		this.isUploading = true;
@@ -116,6 +145,45 @@ export class EditPageComponent implements OnInit {
 	}
 
 	onSubmit(form: NgForm) {
-		console.log('Form submitted:', form.value);
+		if (!this.crop) {
+			console.error('Crop does not exist');
+			return; // Ensure crop exists
+		}
+
+		if (!this.crop._id || this.crop._id === '') {
+			console.error('Crop id is not valid.');
+			return;
+		}
+
+		if (!form.valid) {
+			alert('Please correct the errors in the form before submitting.');
+			return;
+		}
+
+		const updatedCrop = {
+			...this.crop,
+			...this.formModel,
+			picture: this.pictureUrl,
+			nutrition: {
+				vitamins: this.vitamins,
+				nutrients: this.nutrients,
+			},
+		};
+
+		// Submit the updated crop
+		this.cropService.updateCrop(this.crop._id, updatedCrop).subscribe({
+			next: response => {
+				alert('Crop updated successfully!');
+
+				console.log('Crop updated successfully:', response);
+
+				// Reset after successful submit
+				this.formChanged = false;
+
+				// Redirect to the crop details page
+				this.router.navigate(['/catalog', this.crop?._id]);
+			},
+			error: (err: Error) => alert(`Error updating crop: ${err.message}`),
+		});
 	}
 }

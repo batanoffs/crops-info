@@ -7,9 +7,9 @@
 				<button
 					type="submit"
 					class="submit"
-					[disabled]="form.invalid"
-					[style]="{ backgroundColor: form.invalid ? 'grey' : '#33cc33',
-							cursor: form.invalid ? 'not-allowed' : 'pointer'
+					[disabled]="!formChanged"
+					[style]="{ backgroundColor: !formChanged? 'grey' : '#33cc33',
+							cursor: !formChanged? 'not-allowed' : 'pointer'
 						 }">
 					Update Crop
 				</button>
@@ -24,8 +24,8 @@
 					type="text"
 					name="name"
 					id="name"
-					[value]="crop?.name"
-					ngModel
+					[(ngModel)]="formModel.name"
+					(ngModelChange)="onFieldChange()"
 					#inputName="ngModel"
 					required
 					minlength="3" />
@@ -66,8 +66,8 @@
 							name="description"
 							id="description"
 							rows="3"
-							ngModel
-							[value]="crop?.description"
+							(ngModelChange)="onFieldChange()"
+							[(ngModel)]="formModel.description"
 							#inputDescription="ngModel"
 							required></textarea>
 						@if(inputDescription?.touched && inputDescription?.errors?.['required']){
@@ -84,7 +84,7 @@
 						} @if(uploadError){
 						<p class="error">{{ uploadError }}</p>
 						} @if(pictureUrl){
-						<img [src]=" pictureUrl" alt="Uploaded Image" class="uploaded-image" />
+						<img [src]="pictureUrl" alt="Uploaded Image" class="uploaded-image" />
 						}
 					</div>
 				</div>
@@ -100,10 +100,11 @@
 							<span class="error">*</span>
 						</label>
 						<input
-							type="text"
+							type="string"
 							name="spacing"
 							id="spacing"
-							[value]="crop?.attributes?.spacing"
+							(ngModelChange)="onFieldChange()"
+							[(ngModel)]="formModel.spacing"
 							ngModel
 							#inputSpacing="ngModel"
 							required />
@@ -122,7 +123,8 @@
 							name="plantingDepth"
 							id="plantingDepth"
 							ngModel
-							[value]="crop?.attributes?.plantingDepth"
+							(ngModelChange)="onFieldChange()"
+							[(ngModel)]="formModel.plantingDepth"
 							#inputPlantingDepth="ngModel"
 							required />
 						@if(inputPlantingDepth?.touched &&
@@ -139,9 +141,10 @@
 						<select
 							name="sun"
 							id="sun"
-							[value]="crop?.attributes?.sun"
+							[(ngModel)]="formModel.sun"
 							#inputSun="ngModel"
 							ngModel
+							(ngModelChange)="onFieldChange()"
 							required>
 							@for (option of sunOptions; track option) {
 							<option [value]="option">{{ option }}</option>
@@ -163,8 +166,9 @@
 							type="number"
 							name="water"
 							id="water"
-							[value]="crop?.attributes?.water"
+							[(ngModel)]="formModel.water"
 							ngModel
+							(ngModelChange)="onFieldChange()"
 							#inputWater="ngModel"
 							required />
 						@if(inputWater?.touched && inputWater?.errors?.['required']){
@@ -180,8 +184,9 @@
 						<select
 							name="frost"
 							id="frost"
-							[value]="crop?.attributes?.frost"
+							[(ngModel)]="formModel.frost"
 							ngModel
+							(ngModelChange)="onFieldChange()"
 							#inputFrost="ngModel"
 							required>
 							@for (option of frostOptions; track option) {
@@ -201,8 +206,9 @@
 						<select
 							name="soil"
 							id="soil"
-							[value]="crop?.attributes?.soil"
+							[(ngModel)]="formModel.soil"
 							ngModel
+							(ngModelChange)="onFieldChange()"
 							#inputSoil="ngModel"
 							required>
 							@for (option of soilOptions; track option) {
@@ -225,8 +231,9 @@
 							type="text"
 							name="sproutToHarvest"
 							id="sproutToHarvest"
-							[value]="crop?.attributes?.sproutToHarvest"
+							[(ngModel)]="formModel.sproutToHarvest"
 							ngModel
+							(ngModelChange)="onFieldChange()"
 							#inputSproutToHarvest="ngModel"
 							required />
 						@if(inputSproutToHarvest?.touched &&
@@ -244,8 +251,9 @@
 							type="text"
 							name="germination"
 							id="germination"
-							[value]="crop?.attributes?.germination"
+							[(ngModel)]="formModel.germination"
 							ngModel
+							(ngModelChange)="onFieldChange()"
 							#inputGermination="ngModel"
 							required
 							minlength="3" />
@@ -269,7 +277,8 @@
 							name="sowingTime"
 							id="sowingTime"
 							ngModel
-							[value]="crop?.attributes?.sowingTime"
+							(ngModelChange)="onFieldChange()"
+							[(ngModel)]="formModel.sowingTime"
 							#inputSowingTime="ngModel"
 							required>
 							@for (sowingTime of sowingTimeOptions; track sowingTime) {
@@ -294,6 +303,7 @@
 								id="vitamins"
 								name="vitamins"
 								ngModel
+								(ngModelChange)="onFieldChange()"
 								#inputVitamin="ngModel"
 								placeholder="Enter vitamin (e.g., C, D or E)"
 								minlength="1" />
@@ -330,6 +340,7 @@
 								id="nutrients"
 								name="nutrients"
 								ngModel
+								(ngModelChange)="onFieldChange()"
 								#inputNutrient="ngModel"
 								placeholder="Enter nutrient (e.g., Potassium)" />
 							<button
