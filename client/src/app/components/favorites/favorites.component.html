@@ -1,1 +1,15 @@
-<p>favorites works!</p>
+<h1>Favorites</h1>
+
+@if (favoriteCrops.length === 0) {
+<p>No favorite crops found.</p>
+} @else {
+<div class="favorites-container">
+	<ul class="crop-list">
+		@for (crop of favoriteCrops; track crop) {
+		<li>
+			<crop-list [cropProp]="crop"></crop-list>
+		</li>
+		}
+	</ul>
+</div>
+}

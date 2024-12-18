@@ -1,0 +1,21 @@
+.favorites-container {
+    max-height: calc(100dvh - 100px);
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crop-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .crop-list li {
+    margin-bottom: 20px;
+  }
