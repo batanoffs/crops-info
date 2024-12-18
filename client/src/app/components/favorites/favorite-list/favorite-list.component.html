@@ -1,0 +1,10 @@
+<li (mouseenter)="showButton = true" (mouseleave)="showButton = false">
+	<div>
+		<h4>{{crop?.name}}</h4>
+		<img src="{{crop?.picture}}" [routerLink]="['/catalog', crop?._id]" alt="{{crop?.name}}" />
+	</div>
+
+	@if(isAuthenticated && isFavorite) {
+	<button class="remove-from-favorites" (click)="onDeleteClick()">Remove from Favorites</button>
+	}
+</li>

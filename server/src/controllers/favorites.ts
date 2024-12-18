@@ -103,15 +103,24 @@ export const getFavorites = async (req: Request, res: Response): Promise<void> =
 }
 
 export const removeFromFavorites = async (req: Request, res: Response): Promise<void> => {
-	const { id } = req.params
-	const { userId } = req.body
-
 	try {
-		const crop = await Crop.findById(id)
-		if (!crop) {
-			res.status(404).json({ message: 'Crop not found' })
+		const { cropId } = req.params
+
+		if (!cropId) {
+			res.status(400).json({ message: 'Crop ID is required' })
 			return
 		}
+		console.log(cropId)
+
+		const token = req.headers.authorization?.split(' ')[1]
+
+		if (!token) {
+			res.status(401).json({ message: 'No token provided' })
+			return
+		}
+
+		const decodedToken = verifyToken(token)
+		const userId = decodedToken._id
 
 		const favorites = await Favorites.findOne({ user: userId })
 		if (!favorites) {
@@ -119,8 +128,10 @@ export const removeFromFavorites = async (req: Request, res: Response): Promise<
 			return
 		}
 
-		favorites.crops = favorites.crops.filter(cropId => (cropId as string) !== id)
+		favorites.crops = favorites.crops.filter(id => id.toString() !== cropId)
+
 		await favorites.save()
+
 		res.json(favorites)
 	} catch (error: unknown) {
 		if (error instanceof Error) {

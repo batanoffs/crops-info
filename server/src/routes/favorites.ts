@@ -5,6 +5,6 @@ const router = Router()
 
 router.post('/', addToFavorites)
 router.get('/', getFavorites)
-router.delete('/', removeFromFavorites)
+router.delete('/:cropId', removeFromFavorites)
 
 export default router

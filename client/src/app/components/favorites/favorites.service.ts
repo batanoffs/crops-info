@@ -23,4 +23,15 @@ export class FavoritesService {
 			},
 		});
 	}
+
+	removeOne(cropId: string): Observable<any> {
+		if (this.token === undefined) {
+			return throwError(() => new Error('User is not logged in.'));
+		}
+		return this.http.delete(API.FAVORITES + cropId, {
+			headers: {
+				Authorization: `Bearer ${this.token}`,
+			},
+		});
+	}
 }
