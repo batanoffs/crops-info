@@ -1,5 +1,36 @@
 import { NextFunction, Request, Response } from 'express'
 import Crop from '../models/Crop'
+import { verifyToken } from '../services/jwt'
+
+export const validateOwner = async (req: Request, res: Response): Promise<void> => {
+	const { ownerId } = req.params
+
+	try {
+		if (!ownerId) {
+			res.status(400).json({ message: 'No ownerId provided', isOwner: false })
+			return
+		}
+
+		const token = req.headers.authorization?.split(' ')[1]
+
+		if (!token) {
+			res.status(401).json({ message: 'No token provided', isOwner: false })
+			return
+		}
+
+		const decodedToken = verifyToken(token)
+		const userId = decodedToken._id
+
+		if (ownerId !== userId) {
+			res.status(403).json({ message: 'Unauthorized', isOwner: false })
+			return
+		}
+
+		res.status(200).json({ message: 'Authorized', isOwner: true })
+	} catch (error) {
+		res.status(500).json({ message: 'Error adding category item', isOwner: false, error })
+	}
+}
 
 export const addCrop = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 	if (!req.body) {
@@ -23,6 +54,16 @@ export const addCrop = async (req: Request, res: Response, next: NextFunction): 
 		res.status(400).json({ message: 'Missing required fields' })
 		return
 	}
+
+	const token = req.headers.authorization?.split(' ')[1]
+
+	if (!token) {
+		res.status(401).json({ message: 'No token provided' })
+		return
+	}
+
+	const decodedToken = verifyToken(token)
+	const userId = decodedToken._id
 
 	const {
 		spacing,
@@ -72,6 +113,7 @@ export const addCrop = async (req: Request, res: Response, next: NextFunction): 
 			diseases,
 			companionPlants,
 			combativePlants,
+			createdBy: userId,
 		})
 		res.json(crop)
 	} catch (error) {

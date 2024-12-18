@@ -20,6 +20,15 @@ export class CropService {
 		return this.http.get(API.CATALOG + id);
 	}
 
+	isOwner(ownerId: string) {
+		const token = getToken();
+		return this.http.get(API.IS_OWNER + ownerId, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+	}
+
 	saveCrop(id: string) {
 		const token = getToken();
 		return this.http.post(

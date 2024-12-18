@@ -53,4 +53,5 @@ export interface Crop {
 	companionPlants?: CompanionPlants[];
 	combativePlants?: CombatPlants[];
 	createdAt?: Date;
+	createdBy?: string;
 }

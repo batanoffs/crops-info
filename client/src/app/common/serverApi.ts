@@ -16,4 +16,5 @@ export const API = {
 	FAVORITES: endpoints.favorites,
 	CREATE: endpoints.crops,
 	UPLOAD: endpoints.crops + 'upload',
+	IS_OWNER: endpoints.crops + 'owner/',
 };
