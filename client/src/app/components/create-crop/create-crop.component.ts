@@ -20,18 +20,53 @@ export class CreateCropComponent {
 	frostOptions = attributes.frostOptions;
 	soilOptions = attributes.soilOptions;
 	sowingTimeOptions = attributes.sowingTimeOptions;
-
 	pictureUrl: string = ''; // Holds the Cloudinary image URL
 	isUploading = false; // Tracks upload progress
 	uploadError: string | null = null; // Error message if upload fails
+	vitamins: string[] = [];
+	nutrients: string[] = [];
 
 	public files: NgxFileDropEntry[] = [];
+
+	public fileOver(event: any) {
+		console.log(event);
+	}
+
+	public fileLeave(event: any) {
+		console.log(event);
+	}
 
 	constructor(
 		private http: HttpClient,
 		private router: Router,
 		private uploadService: UploadService
 	) {}
+
+	// Add a vitamin
+	addVitamin(vitamin: string) {
+		const trimmedVitamin = vitamin.trim();
+		if (trimmedVitamin.length === 1) {
+			this.vitamins.push(trimmedVitamin.toUpperCase());
+			// this.inputVitamin.control.setValue('');
+		}
+	}
+
+	// Add a nutrient
+	addNutrient(nutrient: string) {
+		if (!nutrient) return;
+		const trimmedNutrient = nutrient.trim();
+		this.nutrients.push(trimmedNutrient);
+	}
+
+	// Remove a vitamin
+	removeVitamin(index: number) {
+		this.vitamins.splice(index, 1);
+	}
+
+	// Remove a nutrient
+	removeNutrient(index: number) {
+		this.nutrients.splice(index, 1);
+	}
 
 	onFileDropped(files: NgxFileDropEntry[]) {
 		this.isUploading = true;
@@ -42,8 +77,6 @@ export class CreateCropComponent {
 			if (droppedFile.fileEntry.isFile) {
 				const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
 				fileEntry.file((file: File) => {
-					// Here you can access the real file
-					console.log(droppedFile.relativePath, file);
 					this.uploadService.uploadImage(file).subscribe({
 						next: (event: HttpEvent<any>) => {
 							if (event instanceof HttpResponse) {
@@ -63,14 +96,6 @@ export class CreateCropComponent {
 				console.log(droppedFile.relativePath, fileEntry);
 			}
 		}
-	}
-
-	public fileOver(event: any) {
-		console.log(event);
-	}
-
-	public fileLeave(event: any) {
-		console.log(event);
 	}
 
 	createCrop(form: NgForm) {
@@ -93,15 +118,15 @@ export class CreateCropComponent {
 				germination: form.value.germination,
 				sowingTime: form.value.sowingTime,
 			},
+			nutrition: {
+				vitamins: this.vitamins,
+				nutrients: this.nutrients,
+			},
 		};
 
 		this.http.post(API.CREATE, data).subscribe({
-			next: () => this.router.navigate(['/crops']),
+			next: () => this.router.navigate(['crops']),
 			error: err => console.error('Error creating crop', err),
 		});
-	}
-
-	goBackHandler() {
-		this.router.navigate(['/crops']);
 	}
 }
