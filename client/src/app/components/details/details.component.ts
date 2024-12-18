@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Crop } from '../../types/crop.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CropService } from '../catalog/crop.service';
 import { AuthService } from '../../services/auth.service';
 import { getToken } from '../../utils/cookie';
@@ -10,7 +10,7 @@ import { TransformAttr } from '../../directives/transformAttr.directive';
 @Component({
 	selector: 'app-details',
 	standalone: true,
-	imports: [CommonModule, TransformAttr],
+	imports: [CommonModule, TransformAttr, RouterLink],
 	templateUrl: './details.component.html',
 	styleUrl: './details.component.scss',
 	providers: [CropService, AuthService],
@@ -37,15 +37,11 @@ export class DetailsComponent {
 		const id = this.route.snapshot.params['id'];
 		this.cropService.getOneCrop(id).subscribe((response: any) => {
 			if (this.hasAllAttributes(response)) {
-				console.log('Crop data:', response);
-				
 				this.crop = response;
-				console.log(this.crop.attributes);
 			} else {
 				console.error('Crop data is incomplete:', response);
 			}
 		});
-		
 	}
 
 	addToFavorites(): void {
