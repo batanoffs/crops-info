@@ -32,4 +32,14 @@ export class CropService {
 			}
 		);
 	}
+
+	updateCrop(id: string, updatedCrop: Crop): Observable<Crop> {
+		const token = getToken();
+
+		return this.http.put<Crop>(API.CATALOG + id, updatedCrop, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+	}
 }
