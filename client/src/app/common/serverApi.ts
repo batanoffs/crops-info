@@ -3,9 +3,9 @@ import { environment } from '../../environments/environment';
 const baseURL = environment.apiUrl;
 
 const endpoints = {
-	crops: baseURL + 'crops/',
-	auth: baseURL + 'auth/',
-	favorites: baseURL + 'crops/favorites',
+	crops: baseURL + '/crops/',
+	auth: baseURL + '/auth/',
+	favorites: baseURL + '/favorites/',
 };
 
 export const API = {
