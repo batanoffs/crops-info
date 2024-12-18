@@ -9,6 +9,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CreateCropComponent } from './components/create-crop/create-crop.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { guestGuard } from './guards/guest.guard';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
 	{ path: 'register', component: RegisterComponent, canActivate: [guestGuard] },
 	{ path: 'catalog', component: CatalogComponent },
 	{ path: 'catalog/:id', component: DetailsComponent },
+	{ path: 'edit/:id', component: EditPageComponent },
 	{ path: 'favorites', component: FavoritesComponent },
 	{ path: 'create', component: CreateCropComponent },
 	{ path: 'error', component: ErrorMsgComponent },
