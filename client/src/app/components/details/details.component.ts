@@ -20,6 +20,7 @@ export class DetailsComponent {
 	crop = {} as Crop;
 	isAuth = false;
 	userFavorites: Crop[] = [];
+
 	constructor(
 		private route: ActivatedRoute,
 		private favoritesService: FavoritesService,
@@ -28,6 +29,7 @@ export class DetailsComponent {
 
 	ngOnInit(): void {
 		// TODO update isAuth to be generated based on authService - so update methods there as well
+		let ownerId = '';
 
 		const token = getToken();
 		if (token && token !== '') {
@@ -47,10 +49,6 @@ export class DetailsComponent {
 		this.favoritesService.getFavorites().subscribe((response: any) => {
 			this.userFavorites = response.crops;
 		});
-	}
-
-	isOwner(): boolean {
-		return true;
 	}
 
 	isFavorite(): boolean {
