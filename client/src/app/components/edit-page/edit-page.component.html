@@ -1,0 +1,363 @@
+<div class="container">
+	<div class="new-crop-border">
+		<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+			<div class="header-background">
+				<h1>Edit Crop</h1>
+				<!-- Buttons -->
+				<button
+					type="submit"
+					class="submit"
+					[disabled]="form.invalid"
+					[style]="{ backgroundColor: form.invalid ? 'grey' : '#33cc33',
+							cursor: form.invalid ? 'not-allowed' : 'pointer'
+						 }">
+					Update Crop
+				</button>
+			</div>
+			<!-- Name -->
+			<div class="form-group">
+				<label for="name">
+					Crop Name
+					<span class="error">*</span>
+				</label>
+				<input
+					type="text"
+					name="name"
+					id="name"
+					[value]="crop?.name"
+					ngModel
+					#inputName="ngModel"
+					required
+					minlength="3" />
+				@if(inputName?.touched){
+				<div>
+					@if(inputName?.errors?.['required']){
+					<p class="error">Crop name is required.</p>
+					} @if(inputName?.errors?.['minlength']){
+					<p class="error">Crop name must be at least 3 characters long.</p>
+					}
+				</div>
+				}
+			</div>
+			<div class="vertical-wrapper">
+				<div>
+					<!-- Drag and Drop for Picture -->
+					<div class="drag-and-drop">
+						<div class="form-group">
+							<label>
+								Picture
+								<span class="error">*</span>
+							</label>
+							<ngx-file-drop
+								dropZoneLabel="Drag and drop an image"
+								(onFileDrop)="onFileDropped($event)"
+								(onFileOver)="fileOver($event)"
+								(onFileLeave)="fileLeave($event)"
+								(dropZoneClassName)="{ 'dropzone-error': uploadError }"></ngx-file-drop>
+						</div>
+					</div>
+					<!-- Description -->
+					<div class="form-group">
+						<label for="description">
+							Description
+							<span class="error">*</span>
+						</label>
+						<textarea
+							name="description"
+							id="description"
+							rows="3"
+							ngModel
+							[value]="crop?.description"
+							#inputDescription="ngModel"
+							required></textarea>
+						@if(inputDescription?.touched && inputDescription?.errors?.['required']){
+						<p class="error">Description is required.</p>
+						}
+					</div>
+				</div>
+				<!-- Preview -->
+				<div class="preview">
+					<h4>Preview:</h4>
+					<div class="img-container">
+						@if(isUploading){
+						<p class="info">Uploading image...</p>
+						} @if(uploadError){
+						<p class="error">{{ uploadError }}</p>
+						} @if(pictureUrl){
+						<img [src]=" pictureUrl" alt="Uploaded Image" class="uploaded-image" />
+						}
+					</div>
+				</div>
+			</div>
+			<!-- Attributes -->
+			<fieldset>
+				<legend>Attributes</legend>
+				<div class="wrapper">
+					<!-- Spacing -->
+					<div class="form-group">
+						<label for="spacing">
+							Spacing
+							<span class="error">*</span>
+						</label>
+						<input
+							type="text"
+							name="spacing"
+							id="spacing"
+							[value]="crop?.attributes?.spacing"
+							ngModel
+							#inputSpacing="ngModel"
+							required />
+						@if(inputSpacing?.touched && inputSpacing?.errors?.['required']){
+						<p class="error">Spacing is required.</p>
+						}
+					</div>
+					<!-- Planting Depth -->
+					<div class="form-group">
+						<label for="plantingDepth">
+							Planting Depth (cm)
+							<span class="error">*</span>
+						</label>
+						<input
+							type="number"
+							name="plantingDepth"
+							id="plantingDepth"
+							ngModel
+							[value]="crop?.attributes?.plantingDepth"
+							#inputPlantingDepth="ngModel"
+							required />
+						@if(inputPlantingDepth?.touched &&
+						inputPlantingDepth?.errors?.['required']){
+						<p class="error">Planting depth is required.</p>
+						}
+					</div>
+					<!-- Sun -->
+					<div class="form-group">
+						<label for="sun">
+							Sun
+							<span class="error">*</span>
+						</label>
+						<select
+							name="sun"
+							id="sun"
+							[value]="crop?.attributes?.sun"
+							#inputSun="ngModel"
+							ngModel
+							required>
+							@for (option of sunOptions; track option) {
+							<option [value]="option">{{ option }}</option>
+							}
+						</select>
+						@if(inputSun?.touched && inputSun?.errors?.['required']){
+						<p class="error">Sun is required.</p>
+						}
+					</div>
+				</div>
+				<div class="wrapper">
+					<!-- Water -->
+					<div class="form-group">
+						<label for="water">
+							Water (liters)
+							<span class="error">*</span>
+						</label>
+						<input
+							type="number"
+							name="water"
+							id="water"
+							[value]="crop?.attributes?.water"
+							ngModel
+							#inputWater="ngModel"
+							required />
+						@if(inputWater?.touched && inputWater?.errors?.['required']){
+						<p class="error">Water is required.</p>
+						}
+					</div>
+					<!-- Frost -->
+					<div class="form-group">
+						<label for="frost">
+							Frost
+							<span class="error">*</span>
+						</label>
+						<select
+							name="frost"
+							id="frost"
+							[value]="crop?.attributes?.frost"
+							ngModel
+							#inputFrost="ngModel"
+							required>
+							@for (option of frostOptions; track option) {
+							<option [value]="option">{{ option }}</option>
+							}
+						</select>
+						@if(inputFrost?.touched && inputFrost?.errors?.['required']){
+						<p class="error">Frost is required.</p>
+						}
+					</div>
+					<!-- Soil -->
+					<div class="form-group">
+						<label for="soil">
+							Soil Type
+							<span class="error">*</span>
+						</label>
+						<select
+							name="soil"
+							id="soil"
+							[value]="crop?.attributes?.soil"
+							ngModel
+							#inputSoil="ngModel"
+							required>
+							@for (option of soilOptions; track option) {
+							<option [value]="option">{{ option }}</option>
+							}
+						</select>
+						@if(inputSoil?.touched && inputSoil?.errors?.['required']){
+						<p class="error">Soil is required.</p>
+						}
+					</div>
+				</div>
+				<div class="wrapper">
+					<!-- Sprout To Harvest -->
+					<div class="form-group">
+						<label for="sproutToHarvest">
+							Sprout To Harvest
+							<span class="error">*</span>
+						</label>
+						<input
+							type="text"
+							name="sproutToHarvest"
+							id="sproutToHarvest"
+							[value]="crop?.attributes?.sproutToHarvest"
+							ngModel
+							#inputSproutToHarvest="ngModel"
+							required />
+						@if(inputSproutToHarvest?.touched &&
+						inputSproutToHarvest?.errors?.['required']){
+						<p class="error">Sprout To Harvest is required.</p>
+						}
+					</div>
+					<!-- Germination -->
+					<div class="form-group">
+						<label for="germination">
+							Germination
+							<span class="error">*</span>
+						</label>
+						<input
+							type="text"
+							name="germination"
+							id="germination"
+							[value]="crop?.attributes?.germination"
+							ngModel
+							#inputGermination="ngModel"
+							required
+							minlength="3" />
+						@if(inputGermination?.touched){
+						<div>
+							@if(inputGermination?.errors?.['required']){
+							<p class="error">Germination is required.</p>
+							} @if(inputGermination?.errors?.['minlength']){
+							<p class="error">Germination min length is 3.</p>
+							}
+						</div>
+						}
+					</div>
+					<!-- Sowing Time -->
+					<div class="form-group">
+						<label for="sowingTime">
+							Sowing Time
+							<span class="error">*</span>
+						</label>
+						<select
+							name="sowingTime"
+							id="sowingTime"
+							ngModel
+							[value]="crop?.attributes?.sowingTime"
+							#inputSowingTime="ngModel"
+							required>
+							@for (sowingTime of sowingTimeOptions; track sowingTime) {
+							<option [value]="sowingTime">{{ sowingTime }}</option>
+							}
+						</select>
+						@if(inputSowingTime?.touched && inputSowingTime?.errors?.['required']){
+						<p class="error">Sowing Time is required.</p>
+						}
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Nutrition properties (optional)</legend>
+				<div class="wrapper">
+					<!-- Vitamins -->
+					<div class="form-group">
+						<label for="vitamins">Vitamins</label>
+						<div class="input-group">
+							<input
+								type="text"
+								id="vitamins"
+								name="vitamins"
+								ngModel
+								#inputVitamin="ngModel"
+								placeholder="Enter vitamin (e.g., C, D or E)"
+								minlength="1" />
+							<button
+								type="button"
+								class="add-button"
+								[disabled]="inputVitamin.value === ''"
+								[style]="{ backgroundColor: inputVitamin.value === '' ? 'grey' : '#33cc33', cursor: inputVitamin.value === '' ? 'not-allowed' : 'pointer' }"
+								(click)="addVitamin(inputVitamin.value); inputVitamin.control.reset()">
+								Add
+							</button>
+						</div>
+						<!-- Vitamin List -->
+						<ul class="list">
+							@for(vitamin of vitamins; track vitamin) {
+							<li>
+								{{ vitamin }}
+								<button
+									type="button"
+									class="delete"
+									(click)="removeVitamin($index)">
+									X
+								</button>
+							</li>
+							}
+						</ul>
+					</div>
+					<!-- Nutrients -->
+					<div class="form-group">
+						<label for="nutrients">Nutrients</label>
+						<div class="input-group">
+							<input
+								type="text"
+								id="nutrients"
+								name="nutrients"
+								ngModel
+								#inputNutrient="ngModel"
+								placeholder="Enter nutrient (e.g., Potassium)" />
+							<button
+								type="button"
+								class="add-button"
+								[disabled]="inputNutrient.value === ''"
+								[style]="{ backgroundColor: inputNutrient.value === '' ? 'grey' : '#33cc33', cursor: inputNutrient.value === '' ? 'not-allowed' : 'pointer' }"
+								(click)="addNutrient(inputNutrient.value); inputNutrient.control.reset()">
+								Add
+							</button>
+						</div>
+						<!-- Nutrient List -->
+						<ul class="list">
+							@for(nutrient of nutrients; track nutrient) {
+							<li>
+								{{ nutrient }}
+								<button
+									type="button"
+									class="delete"
+									(click)="removeNutrient($index)">
+									X
+								</button>
+							</li>
+							}
+						</ul>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>

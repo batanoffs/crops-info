@@ -1,0 +1,200 @@
+@use 'utils' as ds;
+
+.new-crop-border {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 2em;
+	margin: 0 6em;
+	border-radius: 0.25em;
+	background-color: ds.$background-color;
+	color: ds.$text-color;
+
+	.vertical-wrapper {
+		max-height: 280px;
+		display: flex;
+		gap: 2em;
+
+		div:first-child {
+			flex: 50%;
+		}
+
+		div:last-child {
+			flex: 50%;
+		}
+
+		.preview {
+			overflow: hidden;
+
+			h4 {
+				margin: 0;
+				padding: 0;
+				margin-bottom: 0.25em;
+			}
+
+			.img-container {
+				border-radius: 8px;
+				background-color: ds.$background-color;
+				overflow-x: auto;
+				border: 1px solid transparent;
+
+				.uploaded-image {
+					width: 100%;
+					height: auto;
+					border-radius: 8px;
+				}
+			}
+		}
+	}
+
+	.header-background {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: ds.$background-color;
+		border-bottom: 1px solid #ddd;
+		font-weight: bold;
+		margin-bottom: 1em;
+
+		h1 {
+			margin: 0;
+			padding: 0;
+			font-weight: 600;
+			margin-bottom: 0.25em;
+		}
+
+		button {
+			font-size: 1em;
+		}
+	}
+
+	.wrapper {
+		display: flex;
+		gap: 2em;
+
+		.form-group {
+			width: 50%;
+		}
+	}
+
+	fieldset {
+		margin-bottom: 1em;
+	}
+	.form-group {
+		margin-bottom: 1em;
+		flex: 33%;
+
+		.list {
+			display: flex;
+			gap: 0.5em;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				display: flex;
+
+				justify-content: space-between;
+				padding: 5px 0;
+
+				button {
+					background-color: #cc3333;
+					color: white;
+					border: none;
+					cursor: pointer;
+					padding: 5px 10px;
+				}
+			}
+		}
+
+		.input-group {
+			display: flex;
+			gap: 0.5em;
+		}
+
+		label {
+			display: block;
+			font-weight: 600;
+			margin-bottom: 0.25em;
+		}
+
+		input,
+		textarea,
+		select {
+			width: 100%;
+			padding: 0.5em;
+			border: 1px solid #ddd;
+			border-radius: 0.25em;
+			transition: border-color 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		input:focus,
+		textarea:focus,
+		select:focus {
+			border-color: ds.$accent-color;
+			box-shadow: 0 0 0 0.2em rgba(0, 123, 255, 0.25);
+			outline: none;
+		}
+
+		.error {
+			color: ds.$error-color;
+			font-size: 0.875em;
+			margin-top: 0.25em;
+		}
+	}
+
+	.drag-and-drop {
+		display: flex;
+		flex-direction: row;
+		max-height: 500px;
+		gap: 1em;
+		margin-bottom: 1em;
+		border-radius: 0.25em;
+		background-color: ds.$background-color;
+
+		.form-group {
+			flex: 1;
+		}
+	}
+
+	.form-buttons {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 1em;
+	}
+
+	button {
+		padding: 0.5em 1em;
+		font-size: 0.875em;
+		cursor: pointer;
+		border-radius: 0.25em;
+		border: none;
+		transition: background-color 0.3s ease, transform 0.2s ease;
+	}
+
+	.cancel {
+		background-color: ds.$background-color;
+		color: ds.$text-color;
+	}
+
+	.delete {
+		margin-left: 0.5em;
+		border: 1px solid transparent;
+		background-color: ds.$error-color;
+		color: white;
+	}
+
+	.submit {
+		background-color: ds.$primary-color;
+		color: white;
+	}
+
+	.add-button {
+		color: white;
+	}
+
+	button:hover {
+		background-color: lighten(ds.$accent-color, 10%);
+		transform: translateY(-2px);
+	}
+}
