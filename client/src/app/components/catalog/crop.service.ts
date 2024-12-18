@@ -3,8 +3,11 @@ import { API } from '../../common/serverApi';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Crop } from '../../types/crop.interface';
+import { getToken } from '../../utils/cookie';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class CropService {
 	posts: Crop[] = [];
 	constructor(private http: HttpClient) {}
@@ -18,6 +21,15 @@ export class CropService {
 	}
 
 	saveCrop(id: string) {
-		return this.http.post(API.FAVORITES, { id });
+		const token = getToken();
+		return this.http.post(
+			API.FAVORITES,
+			{ id },
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 	}
 }
