@@ -4,7 +4,7 @@ import { HttpClient, HttpEvent, HttpResponse } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { API } from '../../common/serverApi';
 import { attributes } from '../../constants/attributes';
-import { UploadService } from './upload.service';
+import { DataService } from './data.service';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 
@@ -39,7 +39,7 @@ export class CreateCropComponent {
 	constructor(
 		private http: HttpClient,
 		private router: Router,
-		private uploadService: UploadService
+		private dataService: DataService
 	) {}
 
 	// Add a vitamin
@@ -77,7 +77,7 @@ export class CreateCropComponent {
 			if (droppedFile.fileEntry.isFile) {
 				const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
 				fileEntry.file((file: File) => {
-					this.uploadService.uploadImage(file).subscribe({
+					this.dataService.uploadImage(file).subscribe({
 						next: (event: HttpEvent<any>) => {
 							if (event instanceof HttpResponse) {
 								this.pictureUrl = event.body?.data.secure_url || '';
@@ -124,8 +124,8 @@ export class CreateCropComponent {
 			},
 		};
 
-		this.http.post(API.CREATE, data).subscribe({
-			next: () => this.router.navigate(['crops']),
+		this.dataService.createCrop(data).subscribe({
+			next: () => this.router.navigate(['/catalog']),
 			error: err => console.error('Error creating crop', err),
 		});
 	}
