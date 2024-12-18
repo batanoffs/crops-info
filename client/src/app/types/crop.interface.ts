@@ -48,9 +48,9 @@ export interface Crop {
 	description: string;
 	attributes: Attributes;
 	nutrition: Nutrition;
-	pests: string[];
-	diseases: string[];
-	companionPlants: CompanionPlants[];
-	combativePlants: CombatPlants[];
-	createdAt: Date;
+	pests?: string[];
+	diseases?: string[];
+	companionPlants?: CompanionPlants[];
+	combativePlants?: CombatPlants[];
+	createdAt?: Date;
 }
