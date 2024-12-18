@@ -79,6 +79,39 @@ export const addCrop = async (req: Request, res: Response, next: NextFunction): 
 	}
 }
 
+export const updateCrop = async (req: Request, res: Response): Promise<void> => {
+	const { id } = req.params
+	const { body } = req
+
+	if (!body) {
+		res.status(400).json({ message: 'No body provided' })
+		return
+	}
+
+	try {
+		const updatedCrop = await Crop.findByIdAndUpdate(id, body, { new: true })
+
+		if (!updatedCrop) {
+			res.status(404).json({ message: 'Crop not found' })
+			return
+		}
+
+		res.json(updatedCrop)
+	} catch (error: unknown) {
+		if (error instanceof Error) {
+			res.status(500).json({
+				message: 'Error updating crop',
+				error: error?.message ?? 'Unknown error',
+			})
+		} else {
+			res.status(500).json({
+				message: 'Unknown error updating crop',
+				error: 'Unknown error',
+			})
+		}
+	}
+}
+
 export const getAll = async (req: Request, res: Response): Promise<void> => {
 	try {
 		// Fetch all Crops
