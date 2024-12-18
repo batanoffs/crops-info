@@ -8,13 +8,18 @@
 			<h1>{{crop.name}}</h1>
 
 			<div class="auth-buttons">
-				@if(isAuth) {
-				<button (click)="addToFavorites()">
-					<span>Add to Favorites</span>
-				</button>
-				<a [routerLink]="['/edit', crop._id]">
-					<span>Edit Crop</span>
-				</a>
+				@if(isAuth ) { 
+					@if(!isFavorite()) {
+						<button (click)="addToFavorites()">
+							<span>Add to Favorites</span>
+						</button>
+					}
+
+					@if(isOwner()) {
+						<a [routerLink]="['/edit', crop._id]">
+							<span>Edit Crop</span>
+						</a>
+					}
 				}
 			</div>
 		</div>

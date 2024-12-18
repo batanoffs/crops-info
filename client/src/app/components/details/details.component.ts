@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { getToken } from '../../utils/cookie';
 import { CommonModule } from '@angular/common';
 import { TransformAttr } from '../../directives/transformAttr.directive';
+import { FavoritesService } from '../favorites/favorites.service';
 
 @Component({
 	selector: 'app-details',
@@ -13,14 +14,15 @@ import { TransformAttr } from '../../directives/transformAttr.directive';
 	imports: [CommonModule, TransformAttr, RouterLink],
 	templateUrl: './details.component.html',
 	styleUrl: './details.component.scss',
-	providers: [CropService, AuthService],
+	providers: [CropService, AuthService, FavoritesService],
 })
 export class DetailsComponent {
 	crop = {} as Crop;
 	isAuth = false;
+	userFavorites: Crop[] = [];
 	constructor(
 		private route: ActivatedRoute,
-		private authService: AuthService,
+		private favoritesService: FavoritesService,
 		private cropService: CropService
 	) {}
 
@@ -42,6 +44,23 @@ export class DetailsComponent {
 				console.error('Crop data is incomplete:', response);
 			}
 		});
+		this.favoritesService.getFavorites().subscribe((response: any) => {
+			this.userFavorites = response.crops;
+		});
+	}
+
+	isOwner(): boolean {
+		return true;
+	}
+
+	isFavorite(): boolean {
+		if (!this.userFavorites) return false;
+		console.log(
+			'isFavorite',
+			this.userFavorites.some(crop => crop._id === this.crop._id)
+		);
+
+		return this.userFavorites.some(crop => crop._id === this.crop._id);
 	}
 
 	addToFavorites(): void {
