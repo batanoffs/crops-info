@@ -41,7 +41,7 @@ During development, I've learned about:
 | Frontend         | `Angular 18`, `TypeScript`                                                             |
 | Server           | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,`Express-Mongoose-RA-JSON-Server` |
 | UI               | `SASS`,                                                                                |
-| Forms            |                                                                                        |
+| Forms            | `NG forms`                                                                             |
 | State management |                                                                                        |
 | Database         | `MongoDB`, `Mongoose`                                                                  |
 | Encryption       | `bcryptjs`                                                                             |
