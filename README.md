@@ -7,7 +7,9 @@ This is plants/crops wiki where users can find information about growing crops a
 
 **Important Notes:**
 
-- *place holder*
+- *Angular based project with REST api and mongo DB*
+- *The project is still in early stage, but the most common CRUD operations are implemented*
+- *demo coming soon*
 
 During development, I've learned about:
 - fully utilizing the features that the Angular 18 version provides
