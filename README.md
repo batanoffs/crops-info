@@ -36,17 +36,18 @@ During development, I've learned about:
 
 ## 🔬 Technologies used
 
-| Category       | Technologies                                           |
-| -------------- | ------------------------------------------------------ |
-| Frontend       | `Angular 18`, `TypeScript`                             |
-| Server         | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`   |
-| UI             | `SASS`,                                                |
-| Forms          | `Ng-Forms`                                             |
-| Database       | `MongoDB`, `Mongoose`                                  |
-| Encryption     | `bcryptjs`                                             |
-| Authentication | `JsonWebToken`                                         |
-| API Request    | `http module`                                          |
-| Tools          | `Git`, `Vite`, `ESLint`, `Prettier`, `Npm`, `Nodemon`, |
+| Category         | Technologies                                                                           |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| Frontend         | `Angular 18`, `TypeScript`                                                             |
+| Server           | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,`Express-Mongoose-RA-JSON-Server` |
+| UI               | `SASS`,                                                                                |
+| Forms            | `NG forms`                                                                             |
+| State management |                                                                                        |
+| Database         | `MongoDB`, `Mongoose`                                                                  |
+| Encryption       | `bcryptjs`                                                                             |
+| Authentication   | `JsonWebToken`                                                                         |
+| API Request      | `http module`                                                                          |
+| Tools            | `Git`, `Vite`, `ESLint`, `Prettier`, `npm`, `Nodemon`,                                 |
 
 ## 🎬 Features
 
@@ -54,9 +55,9 @@ Here are some examples of how to use this project:
 
 - Register and login as a user
 - Browse crops in the catalog page
-- Create and edit/update crop information
-- Add and manage crops to favorites
-- View crop detailed information
+- Create and edit crops
+- Add and manage items to the favorites
+- Check each crop details in the Details Page
 
 ## 🔧 Installation
 
@@ -101,7 +102,6 @@ Follow the instructions below:
 -   Favorites
 -   Create crops
 -   Edit crops
--   Delete crop
 
 ## 🎨 Design and Architecture
 
