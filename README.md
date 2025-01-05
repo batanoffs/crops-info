@@ -3,11 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/Licence-MIT-teal)](https://opensource.org/licenses/MIT)
 [![styled with: Prettier](https://img.shields.io/badge/styled_with-prettier-purple)](https://github.com/prettier/prettier)
 
-This is plants/crops wiki where users can find information about growing crops and different types of plants. Also be able to add or edit current data about the crops.
+This application serves as a comprehensive wiki for crops, providing users with detailed information on various types of plants and their cultivation, pests, dieses and nutrition. Users can browse through the catalog to find specific crops, and if they are the original creators, they have the ability to modify crop information. They can also add a specific crop to favorites or create a new one.
 
 **Important Notes:**
-
-- *place holder*
 
 During development, I've learned about:
 - fully utilizing the features that the Angular 18 version provides
@@ -34,18 +32,17 @@ During development, I've learned about:
 
 ## 🔬 Technologies used
 
-| Category         | Technologies                                                                           |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| Frontend         | `Angular 18`, `TypeScript`                                                             |
-| Server           | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,`Express-Mongoose-RA-JSON-Server` |
-| UI               | `SASS`,                                                                                |
-| Forms            |                                                                                        |
-| State management |                                                                                        |
-| Database         | `MongoDB`, `Mongoose`                                                                  |
-| Encryption       | `bcryptjs`                                                                             |
-| Authentication   | `JsonWebToken`                                                                         |
-| API Request      | `http module`                                                                          |
-| Tools            | `Git`, `Vite`, `ESLint`, `Prettier`, `npm`, `Nodemon`,                                 |
+| Category       | Technologies                                                                           |
+| -------------- | -------------------------------------------------------------------------------------- |
+| Frontend       | `Angular 18`, `TypeScript`                                                             |
+| Server         | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,`Express-Mongoose-RA-JSON-Server` |
+| UI             | `SASS`,                                                                                |
+| Forms          | `Ng-Forms`                                                                             |
+| Database       | `MongoDB`, `Mongoose`                                                                  |
+| Encryption     | `bcryptjs`                                                                             |
+| Authentication | `JsonWebToken`                                                                         |
+| API Request    | `http module`                                                                          |
+| Tools          | `Git`, `Vite`, `ESLint`, `Prettier`, `Npm`, `Nodemon`,                                 |
 
 ## 🎬 Features
 
@@ -53,9 +50,9 @@ Here are some examples of how to use this project:
 
 - Register and login as a user
 - Browse crops in the catalog page
-- Create and edit crops
-- Add and manage items to the favorites
-- Check each crop details in the Details Page
+- Create and edit/update crop information
+- Add and manage crops to favorites
+- View crop detailed information
 
 ## 🔧 Installation
 
@@ -100,6 +97,7 @@ Follow the instructions below:
 -   Favorites
 -   Create crops
 -   Edit crops
+-   Delete crop
 
 ## 🎨 Design and Architecture
 
