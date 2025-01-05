@@ -7,6 +7,10 @@ This application serves as a comprehensive wiki for crops, providing users with 
 
 **Important Notes:**
 
+- *Angular based project with REST api and mongo DB*
+- *The project is still in early stage, but the most common CRUD operations are implemented*
+- *demo coming soon*
+
 During development, I've learned about:
 - fully utilizing the features that the Angular 18 version provides
 - configure database in MongoDB and store images to the Cloudinary cloud provider
@@ -32,17 +36,17 @@ During development, I've learned about:
 
 ## 🔬 Technologies used
 
-| Category       | Technologies                                                                           |
-| -------------- | -------------------------------------------------------------------------------------- |
-| Frontend       | `Angular 18`, `TypeScript`                                                             |
-| Server         | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,`Express-Mongoose-RA-JSON-Server` |
-| UI             | `SASS`,                                                                                |
-| Forms          | `Ng-Forms`                                                                             |
-| Database       | `MongoDB`, `Mongoose`                                                                  |
-| Encryption     | `bcryptjs`                                                                             |
-| Authentication | `JsonWebToken`                                                                         |
-| API Request    | `http module`                                                                          |
-| Tools          | `Git`, `Vite`, `ESLint`, `Prettier`, `Npm`, `Nodemon`,                                 |
+| Category       | Technologies                                           |
+| -------------- | ------------------------------------------------------ |
+| Frontend       | `Angular 18`, `TypeScript`                             |
+| Server         | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`   |
+| UI             | `SASS`,                                                |
+| Forms          | `Ng-Forms`                                             |
+| Database       | `MongoDB`, `Mongoose`                                  |
+| Encryption     | `bcryptjs`                                             |
+| Authentication | `JsonWebToken`                                         |
+| API Request    | `http module`                                          |
+| Tools          | `Git`, `Vite`, `ESLint`, `Prettier`, `Npm`, `Nodemon`, |
 
 ## 🎬 Features
 
