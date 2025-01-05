@@ -36,18 +36,17 @@ During development, I've learned about:
 
 ## 🔬 Technologies used
 
-| Category         | Technologies                                                                           |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| Frontend         | `Angular 18`, `TypeScript`                                                             |
-| Server           | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,`Express-Mongoose-RA-JSON-Server` |
-| UI               | `SASS`,                                                                                |
-| Forms            | `NG forms`                                                                             |
-| State management |                                                                                        |
-| Database         | `MongoDB`, `Mongoose`                                                                  |
-| Encryption       | `bcryptjs`                                                                             |
-| Authentication   | `JsonWebToken`                                                                         |
-| API Request      | `http module`                                                                          |
-| Tools            | `Git`, `Vite`, `ESLint`, `Prettier`, `npm`, `Nodemon`,                                 |
+| Category       | Technologies                                           |
+| -------------- | ------------------------------------------------------ |
+| Frontend       | `Angular 18`, `TypeScript`                             |
+| Server         | `Node`, `Express`, `Cors`, `Cookie-parser`, `Multer`,  |
+| UI             | `SASS`,                                                |
+| Forms          | `NG forms`                                             |
+| Database       | `MongoDB`, `Mongoose`                                  |
+| Encryption     | `bcryptjs`                                             |
+| Authentication | `JsonWebToken`                                         |
+| API Request    | `http module`                                          |
+| Tools          | `Git`, `Vite`, `ESLint`, `Prettier`, `npm`, `Nodemon`, |
 
 ## 🎬 Features
 
